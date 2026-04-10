@@ -336,12 +336,38 @@ function switchTab(tabName) {
   });
 
   // Show selected tab content
-  document
+  if (document.getElementById(tabName)) {
+    document
     .getElementById(tabName)
     .classList.remove("hidden");
+  }
 
   // Add active class to selected tab button
   const activeTab = document.getElementById(tabName + "Btn");
   activeTab.classList.add("active", "text-blue-400");
   activeTab.classList.remove("text-gray-400");
+}
+
+
+// Password visibility toggle
+function togglePassword(inputId) {
+  const input = document.getElementById(inputId);
+  const button = input
+    .closest(".form-group")
+    ?.querySelector('button[type="button"]');
+  const icon = button?.querySelector("i, svg");
+
+  if (!input || !button || !icon) {
+    return;
+  }
+
+  if (input.type === "password") {
+    input.type = "text";
+    icon.classList.remove("fa-eye");
+    icon.classList.add("fa-eye-slash");
+  } else {
+    input.type = "password";
+    icon.classList.remove("fa-eye-slash");
+    icon.classList.add("fa-eye");
+  }
 }

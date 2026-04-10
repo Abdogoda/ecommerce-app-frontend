@@ -321,6 +321,7 @@
         class="fixed inset-0 bg-black/50 z-40 hidden md:hidden"
         onclick="closeSidebar()"
       ></div>
+
       <!-- Page Content -->
       <div class="p-6 animate-fade-in">
         <!-- Profile Header -->
@@ -332,21 +333,14 @@
             <div class="relative">
               <div class="profile-image-container w-32 h-32 p-1">
                 <div
-                  id="profileAvatar"
+                  id="imageToCrop"
                   class="w-full h-full rounded-full bg-gradient-to-br from-blue-600 to-purple-700 flex items-center justify-center text-white font-bold text-4xl"
                 >
                   A
                 </div>
               </div>
-              <input
-                type="file"
-                id="imageUpload"
-                class="hidden"
-                accept="image/*"
-                onchange="handleImageUpload(this)"
-              />
               <button
-                onclick="document.getElementById('imageUpload').click()"
+                onclick="openModal('addImageModal')"
                 class="absolute -bottom-0 -right-0 bg-blue-500 hover:bg-blue-600 p-2 rounded-full text-white transition-colors"
               >
                 <i class="fas fa-edit text-sm"></i>
@@ -638,8 +632,8 @@
                       </div>
                     </div>
                     <button
-                      onclick="switchTab('password')"
-                      class="text-blue-400 hover:text-blue-300 font-medium"
+                      onclick="switchTab('passwordTab')"
+                      class="text-green-400 hover:text-green-300 font-medium"
                     >
                       Change
                     </button>
@@ -658,6 +652,11 @@
                       <i class="fas fa-check-circle mr-1"></i>
                       <span class="text-sm font-medium">Verified</span>
                     </div>
+                    <!-- <a
+                      href="#"
+                      class="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white text-sm font-semibold p-3 rounded-xl transition-all duration-300 transform hover:scale-105 shadow hover:shadow-blue-500/25"
+                      >Verify Now</a
+                    > -->
                   </div>
                 </div>
               </div>
@@ -721,7 +720,7 @@
             <div
               class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4"
             >
-              <i class="fas fa-devices text-blue-400 text-2xl"></i>
+              <i class="fas fa-right-from-bracket text-blue-400 text-2xl"></i>
             </div>
             <h4 class="text-lg font-semibold text-white mb-2">
               Active Sessions
@@ -752,7 +751,7 @@
             </ul>
           </div>
 
-          <form onsubmit="confirmLogoutDevices(event)" class="space-y-4">
+          <form class="space-y-4">
             <div>
               <label class="block text-sm font-medium text-gray-400 mb-2">
                 Enter your password to confirm
@@ -795,121 +794,94 @@
       </div>
     </div>
 
-    <!-- Image Crop Modal -->
+    <!-- Add Image Modal -->
     <div
-      id="imageCropModal"
-      class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4"
+      id="addImageModal"
+      class="hidden fixed inset-0 bg-black/50 z-50 backdrop-blur-sm flex items-center justify-center"
     >
-      <div class="glass rounded-xl max-w-lg w-full animate-bounce-in">
-        <div
-          class="flex items-center justify-between p-4 border-b border-white/10"
-        >
-          <h3 class="text-lg font-bold text-white">Crop Image</h3>
+      <div
+        class="modal-content bg-black/90 rounded-xl p-6 w-full max-w-lg mx-4 animate-bounce-in transition-all duration-300"
+      >
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-xl font-bold text-white">
+            <i class="fas fa-user-plus mr-2 text-blue-500"></i>
+            Update Profile Image
+          </h3>
           <button
-            onclick="closeModal('imageCropModal')"
-            class="text-gray-400 hover:text-white"
+            onclick="closeModal('addImageModal')"
+            class="text-gray-400 hover:text-white text-xl transition-colors"
           >
             <i class="fas fa-times"></i>
           </button>
         </div>
 
-        <div class="p-4">
-          <!-- Main Image Display with Cropper -->
-          <div class="mb-4">
-            <div
-              class="bg-black/20 rounded-lg p-2 flex items-center justify-center"
-            >
-              <div class="max-w-full max-h-64 overflow-hidden rounded">
-                <img
-                  id="cropperImage"
-                  src=""
-                  alt="Image to crop"
-                  class="max-w-full max-h-64"
-                  style="display: none; max-width: 100%; height: auto"
-                />
+        <form class="space-y-4">
+          <!-- Image Upload Area -->
+          <div
+            id="dropZone"
+            class="border-2 border-dashed border-gray-600 rounded-lg p-8 text-center hover:border-blue-500 transition-colors"
+          >
+            <div id="imageUploadArea" class="space-y-4">
+              <div class="text-gray-400">
+                <i class="fas fa-cloud-upload-alt text-4xl mb-4"></i>
+                <p class="text-sm">Click to browse</p>
               </div>
+              <input
+                type="file"
+                id="imageInput"
+                accept="image/*"
+                class="hidden"
+                onchange="handleImageUpload(this)"
+              />
+              <button
+                type="button"
+                onclick="document.getElementById('imageInput').click()"
+                class="px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium transition-colors"
+              >
+                <i class="fas fa-folder-open mr-2"></i>
+                Choose File
+              </button>
             </div>
-          </div>
 
-          <!-- Cropper Controls -->
-          <div class="grid grid-cols-4 gap-2 mb-4">
-            <button
-              onclick="cropperZoomIn()"
-              class="glass px-2 py-2 rounded-lg text-gray-400 hover:text-white transition-colors text-xs"
-              title="Zoom In"
-            >
-              <i class="fas fa-search-plus"></i>
-            </button>
-            <button
-              onclick="cropperZoomOut()"
-              class="glass px-2 py-2 rounded-lg text-gray-400 hover:text-white transition-colors text-xs"
-              title="Zoom Out"
-            >
-              <i class="fas fa-search-minus"></i>
-            </button>
-            <button
-              onclick="cropperRotateLeft()"
-              class="glass px-2 py-2 rounded-lg text-gray-400 hover:text-white transition-colors text-xs"
-              title="Rotate Left"
-            >
-              <i class="fas fa-undo"></i>
-            </button>
-            <button
-              onclick="cropperRotateRight()"
-              class="glass px-2 py-2 rounded-lg text-gray-400 hover:text-white transition-colors text-xs"
-              title="Rotate Right"
-            >
-              <i class="fas fa-redo"></i>
-            </button>
-          </div>
-
-          <!-- Aspect Ratio Controls -->
-          <div class="mb-4">
-            <div class="grid grid-cols-4 gap-2">
+            <!-- Image Preview -->
+            <div id="imagePreview" class="hidden">
+              <img
+                id="previewImg"
+                src=""
+                alt="Preview"
+                class="max-w-full h-48 object-contain mx-auto rounded-lg"
+              />
+              <p id="fileName" class="text-gray-400 text-sm mt-2"></p>
               <button
-                onclick="setAspectRatio(1)"
-                class="aspect-ratio-btn glass px-2 py-1 rounded text-xs text-gray-400 hover:text-white transition-colors active"
+                type="button"
+                onclick="removeImagePreview()"
+                class="mt-2 px-4 py-1 bg-red-600 hover:bg-red-700 rounded text-white text-sm transition-colors"
               >
-                1:1
-              </button>
-              <button
-                onclick="setAspectRatio(4 / 3)"
-                class="aspect-ratio-btn glass px-2 py-1 rounded text-xs text-gray-400 hover:text-white transition-colors"
-              >
-                4:3
-              </button>
-              <button
-                onclick="setAspectRatio(16 / 9)"
-                class="aspect-ratio-btn glass px-2 py-1 rounded text-xs text-gray-400 hover:text-white transition-colors"
-              >
-                16:9
-              </button>
-              <button
-                onclick="setAspectRatio(NaN)"
-                class="aspect-ratio-btn glass px-2 py-1 rounded text-xs text-gray-400 hover:text-white transition-colors"
-              >
-                Free
+                Remove
               </button>
             </div>
           </div>
 
-          <!-- Action Buttons -->
-          <div class="flex items-center justify-end space-x-3">
+          <!-- Modal Actions -->
+          <div class="flex justify-end space-x-3 pt-4">
             <button
-              onclick="closeModal('imageCropModal')"
-              class="glass px-4 py-2 rounded-lg text-gray-400 hover:text-white transition-colors text-sm"
+              type="button"
+              onclick="closeModal('addImageModal')"
+              class="px-6 py-2 bg-gray-600/50 hover:bg-gray-600/70 rounded-lg text-white font-medium transition-colors"
             >
               Cancel
             </button>
             <button
-              onclick="applyCrop()"
-              class="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-bold px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm"
+              type="submit"
+              class="btn-primary px-6 py-2 rounded-lg text-white font-medium"
+              id="addImageBtn"
+              disabled
             >
-              <i class="fas fa-check mr-1"></i>
-              Apply
+              <i class="fas fa-plus mr-2"></i>
+              Save Image
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
 
@@ -960,7 +932,7 @@
             </ul>
           </div>
 
-          <form onsubmit="confirmDeleteAccount(event)" class="space-y-4">
+          <form class="space-y-4">
             <div>
               <label class="block text-sm font-medium text-gray-400 mb-2">
                 Enter your password to confirm
@@ -1004,185 +976,28 @@
     </div>
 
     <script>
-      // Global variables for image cropping
-      let currentImageFile = null;
-      let cropper = null;
-
-      // Profile image upload handler
       function handleImageUpload(input) {
-        if (input.files && input.files[0]) {
-          const file = input.files[0];
-
-          // Validate file type
-          if (!file.type.startsWith("image/")) {
-            toastr.error("Please select a valid image file!");
-            return;
-          }
-
-          // Validate file size (max 5MB)
-          if (file.size > 5 * 1024 * 1024) {
-            toastr.error("Image size should be less than 5MB!");
-            return;
-          }
-
-          currentImageFile = file;
+        const file = input.files[0];
+        if (file) {
           const reader = new FileReader();
           reader.onload = function (e) {
-            openImageCropModal(e.target.result);
+            const uploadArea = document.getElementById("imageUploadArea");
+            const preview = document.getElementById("imagePreview");
+            const previewImg = document.getElementById("previewImg");
+            const fileName = document.getElementById("fileName");
+            const addBtn = document.getElementById("addImageBtn");
+
+            uploadArea.classList.add("hidden");
+            preview.classList.remove("hidden");
+            previewImg.src = e.target.result;
+            fileName.textContent = file.name;
+            addBtn.disabled = false;
           };
           reader.readAsDataURL(file);
-
-          // Clear the input
-          input.value = "";
         }
       }
 
-      // Open image crop modal
-      function openImageCropModal(imageSrc) {
-        const modal = document.getElementById("imageCropModal");
-        const cropperImage = document.getElementById("cropperImage");
-
-        // Set up the image
-        cropperImage.src = imageSrc;
-        cropperImage.style.display = "block";
-
-        // Show modal
-        modal.classList.remove("hidden");
-        modal.classList.add("flex");
-
-        // Wait for image to load then initialize cropper
-        cropperImage.onload = function () {
-          initializeCropper();
-        };
-      }
-
-      // Initialize Cropper.js
-      function initializeCropper() {
-        const image = document.getElementById("cropperImage");
-
-        // Destroy existing cropper if it exists
-        if (cropper) {
-          cropper.destroy();
-        }
-
-        // Initialize new cropper
-        cropper = new Cropper(image, {
-          aspectRatio: 1, // Default to square
-          viewMode: 1,
-          dragMode: "move",
-          autoCropArea: 0.8,
-          restore: false,
-          guides: true,
-          center: true,
-          highlight: false,
-          cropBoxMovable: true,
-          cropBoxResizable: true,
-          toggleDragModeOnDblclick: false,
-          background: false,
-          modal: true,
-          responsive: true,
-          checkOrientation: false,
-        });
-      }
-
-      // Cropper control functions
-      function cropperZoomIn() {
-        if (cropper) {
-          cropper.zoom(0.1);
-        }
-      }
-
-      function cropperZoomOut() {
-        if (cropper) {
-          cropper.zoom(-0.1);
-        }
-      }
-
-      function cropperRotateLeft() {
-        if (cropper) {
-          cropper.rotate(-45);
-        }
-      }
-
-      function cropperRotateRight() {
-        if (cropper) {
-          cropper.rotate(45);
-        }
-      }
-
-      // Set aspect ratio
-      function setAspectRatio(ratio) {
-        if (cropper) {
-          cropper.setAspectRatio(ratio);
-        }
-
-        // Update button states
-        document.querySelectorAll(".aspect-ratio-btn").forEach((btn) => {
-          btn.classList.remove("active");
-        });
-        event.target.classList.add("active");
-      }
-
-      // Apply crop using Cropper.js
-      function applyCrop() {
-        if (!cropper) {
-          toastr.error("Cropper not initialized!");
-          return;
-        }
-
-        // Get cropped canvas
-        const canvas = cropper.getCroppedCanvas({
-          width: 300,
-          height: 300,
-          minWidth: 200,
-          minHeight: 200,
-          maxWidth: 500,
-          maxHeight: 500,
-          fillColor: "#fff",
-          imageSmoothingEnabled: true,
-          imageSmoothingQuality: "high",
-        });
-
-        if (!canvas) {
-          toastr.error("Error generating cropped image!");
-          return;
-        }
-
-        // Convert to data URL
-        const croppedImageData = canvas.toDataURL("image/png", 0.9);
-
-        // Update profile avatar
-        const profileAvatar = document.getElementById("profileAvatar");
-        profileAvatar.innerHTML = `<img src="${croppedImageData}" alt="Admin Profile" class="w-full h-full rounded-full object-cover">`;
-
-        // Close modal and cleanup
-        closeModal("imageCropModal");
-        if (cropper) {
-          cropper.destroy();
-          cropper = null;
-        }
-
-        // Show success message
-        toastr.success("Profile image updated successfully!");
-      }
-
-      // Password visibility toggle
-      function togglePassword(inputId) {
-        const input = document.getElementById(inputId);
-        const button = input.nextElementSibling;
-        const icon = button.querySelector("i");
-
-        if (input.type === "password") {
-          input.type = "text";
-          icon.classList.remove("fa-eye");
-          icon.classList.add("fa-eye-slash");
-        } else {
-          input.type = "password";
-          icon.classList.remove("fa-eye-slash");
-          icon.classList.add("fa-eye");
-        }
-      }
-
+      // Change Password Form Validation
       function changePassword(event) {
         event.preventDefault();
 
@@ -1202,109 +1017,6 @@
 
         event.target.submit();
       }
-
-      // Two-Factor Authentication toggle
-      function confirmLogoutDevices(event) {
-        event.preventDefault();
-        const password = document.getElementById("logoutDevicesPassword").value;
-
-        if (!password) {
-          toastr.error("Please enter your password to confirm!");
-          return;
-        }
-
-        event.target.submit();
-      }
-
-      function confirmDeleteAccount(event) {
-        event.preventDefault();
-        const password = document.getElementById("deleteAccountPassword").value;
-
-        if (!password) {
-          toastr.error("Please enter your password to confirm!");
-          return;
-        }
-
-        event.target.submit();
-      }
-
-      // Mobile sidebar functionality
-      function toggleMobileSidebar() {
-        const sidebar = document.getElementById("sidebar");
-        const overlay = document.getElementById("sidebarOverlay");
-
-        sidebar.classList.toggle("-translate-x-full");
-        overlay.classList.toggle("hidden");
-      }
-
-      // Modal functions
-      function openModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.classList.remove("hidden");
-        modal.classList.add("flex");
-        // Focus first input
-        const firstInput = modal.querySelector("input, select, textarea");
-        if (firstInput) {
-          setTimeout(() => firstInput.focus(), 100);
-        }
-      }
-
-      function closeModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.classList.add("hidden");
-        modal.classList.remove("flex");
-
-        // Cleanup cropper when closing image crop modal
-        if (modalId === "imageCropModal" && cropper) {
-          cropper.destroy();
-          cropper = null;
-        }
-      }
-
-      // Desktop sidebar toggle
-      const toggleSidebar = document.getElementById("toggleSidebar");
-      if (toggleSidebar) {
-        toggleSidebar.addEventListener("click", toggleMobileSidebar);
-      }
-
-      // Close sidebar when clicking outside on mobile
-      document.addEventListener("click", (event) => {
-        const sidebar = document.getElementById("sidebar");
-        const toggleBtn = document.getElementById("toggleSidebar");
-
-        if (
-          !sidebar.contains(event.target) &&
-          !toggleBtn.contains(event.target)
-        ) {
-          if (window.innerWidth < 768) {
-            sidebar.classList.add("-translate-x-full");
-            document.getElementById("sidebarOverlay").classList.add("hidden");
-          }
-        }
-      });
-
-      // Close modal when clicking outside
-      document.addEventListener("click", function (event) {
-        if (event.target.classList.contains("backdrop-blur-sm")) {
-          const modalId = event.target.id;
-          if (modalId && modalId.includes("Modal")) {
-            closeModal(modalId);
-          }
-        }
-      });
-
-      // Close modal with Escape key
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-          const openModal = document.querySelector(
-            ".fixed.inset-0.z-50:not(.hidden)",
-          );
-          if (openModal) {
-            const modalId = openModal.id;
-            closeModal(modalId);
-          }
-        }
-      });
     </script>
   </body>
 </html>
