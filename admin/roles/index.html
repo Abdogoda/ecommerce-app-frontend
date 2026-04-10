@@ -1271,14 +1271,8 @@
     </div>
 
     <script>
-      // Global variables
-      let roleToDelete = null;
-      let roleToEdit = null;
-      let roleToManage = null;
-
       // Role management functions
       function deleteRole(roleId) {
-        roleToDelete = roleId;
         const roleRow = document.querySelector(`tr[data-role-id="${roleId}"]`);
         const roleName = roleRow.querySelector("td:nth-child(1) p").textContent;
 
@@ -1289,8 +1283,6 @@
       }
 
       function editRole(roleId, roleName) {
-        roleToEdit = roleId;
-
         // Populate the edit form with current role data
         document.getElementById("editRoleName").value = roleName;
 
@@ -1299,7 +1291,6 @@
       }
 
       function managePermissions(roleId) {
-        roleToManage = roleId;
         const roleRow = document.querySelector(`tr[data-role-id="${roleId}"]`);
         const roleName = roleRow.querySelector("td:nth-child(1) p").textContent;
 
@@ -1399,80 +1390,6 @@
           }, 1500);
         }
       }
-
-      // Event listeners for modals
-      document
-        .getElementById("confirmDelete")
-        .addEventListener("click", function () {
-          if (roleToDelete) {
-            const roleRow = document.querySelector(
-              `tr[data-role-id="${roleToDelete}"]`,
-            );
-            const roleName =
-              roleRow.querySelector("td:nth-child(1) p").textContent;
-
-            // Simulate API call
-            showToast("success", `Role "${roleName}" deleted successfully`);
-
-            // Remove row with animation
-            roleRow.style.opacity = "0";
-            roleRow.style.transform = "translateX(-100%)";
-            setTimeout(() => {
-              roleRow.remove();
-            }, 300);
-
-            closeModal("deleteModal");
-            roleToDelete = null;
-          }
-        });
-
-      document
-        .getElementById("addForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          const formData = new FormData(this);
-          const roleName = formData.get("name");
-
-          // Show loading state
-          const submitBtn = this.querySelector('button[type="submit"]');
-          const originalText = submitBtn.innerHTML;
-          submitBtn.innerHTML =
-            '<i class="fas fa-spinner fa-spin mr-2"></i>Creating...';
-          submitBtn.disabled = true;
-
-          // Simulate API call
-          setTimeout(() => {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-            showToast("success", `Role "${roleName}" created successfully`);
-            closeModal("addModal");
-            this.reset();
-          }, 1500);
-        });
-
-      document
-        .getElementById("editForm")
-        .addEventListener("submit", function (e) {
-          e.preventDefault();
-          const formData = new FormData(this);
-          const roleName = formData.get("name");
-
-          // Show loading state
-          const submitBtn = this.querySelector('button[type="submit"]');
-          const originalText = submitBtn.innerHTML;
-          submitBtn.innerHTML =
-            '<i class="fas fa-spinner fa-spin mr-2"></i>Updating...';
-          submitBtn.disabled = true;
-
-          // Simulate API call
-          setTimeout(() => {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-            showToast("success", `Role "${roleName}" updated successfully`);
-            closeModal("editModal");
-            roleToEdit = null;
-          }, 1500);
-        });
     </script>
   </body>
 </html>
