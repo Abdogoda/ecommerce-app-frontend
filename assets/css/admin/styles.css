@@ -107,6 +107,13 @@ body.modal-open .fixed.inset-0:not(.hidden):not(#sidebarOverlay) .modal-content 
   border-left: 3px solid #3b82f6;
 }
 
+/* Main full width */
+@media (min-width: 768px) {
+  main.max-w-full {
+    max-width: calc(100% - 16rem);
+  }
+}
+
 /* Card hover effects */
 .admin-card {
   transition: all 0.3s ease;
