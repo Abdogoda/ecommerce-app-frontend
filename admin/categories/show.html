@@ -560,7 +560,14 @@
         class="modal-content bg-black/90 rounded-xl p-6 w-full max-w-md mx-4 animate-bounce-in transition-all duration-300"
       >
         <div class="flex items-center justify-between mb-6">
-          <h3 class="text-xl font-bold text-white">Edit Category</h3>
+          <div class="flex items-center">
+            <div
+              class="w-10 h-10 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center mr-3"
+            >
+              <i class="fas fa-edit text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Edit Category</h3>
+          </div>
           <button
             onclick="closeModal('editCategoryModal')"
             class="text-gray-400 hover:text-white"
@@ -580,6 +587,7 @@
                 type="file"
                 id="categoryImageInput"
                 accept="image/*"
+                name="images"
                 class="hidden"
                 onchange="previewCategoryImage(event)"
               />
@@ -600,11 +608,15 @@
             </div>
           </div>
           <div>
-            <label class="block text-sm font-medium text-gray-400 mb-2"
+            <label
+              class="block text-sm font-medium text-gray-400 mb-2"
+              for="category-name"
               >Category Name</label
             >
             <input
               type="text"
+              id="category-name"
+              name="name"
               value="Electronics"
               class="w-full glass px-4 py-3 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
@@ -612,11 +624,15 @@
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-gray-400 mb-2"
+            <label
+              class="block text-sm font-medium text-gray-400 mb-2"
+              for="category-description"
               >Description</label
             >
             <textarea
               rows="3"
+              id="category-description"
+              name="description"
               class="w-full glass px-4 py-3 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
             >
 Electronic devices and accessories including smartphones, tablets, computers, and smart home Products.</textarea
@@ -633,7 +649,7 @@ Electronic devices and accessories including smartphones, tablets, computers, an
             </button>
             <button
               type="submit"
-              class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 rounded-xl text-white font-bold hover:scale-105 transition-transform"
+              class="flex-1 bg-gradient-to-r from-yellow-500 to-orange-600 px-6 py-3 rounded-xl text-white font-bold hover:scale-105 transition-transform"
             >
               Update Category
             </button>
@@ -651,7 +667,14 @@ Electronic devices and accessories including smartphones, tablets, computers, an
         class="modal-content bg-black/90 rounded-xl p-6 w-full max-w-md mx-4 animate-bounce-in transition-all duration-300"
       >
         <div class="flex items-center justify-between mb-6">
-          <h3 class="text-xl font-bold text-white">Delete Category</h3>
+          <div class="flex items-center">
+            <div
+              class="w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center mr-3"
+            >
+              <i class="fas fa-trash text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Delete Category</h3>
+          </div>
           <button
             type="button"
             onclick="closeModal('deleteCategoryModal')"
@@ -702,129 +725,7 @@ Electronic devices and accessories including smartphones, tablets, computers, an
       </form>
     </div>
 
-    <!-- Edit Category Modal -->
-    <div
-      id="editCategoryModal"
-      class="hidden fixed inset-0 bg-black/50 z-50 backdrop-blur-sm flex items-center justify-center"
-    >
-      <div
-        class="modal-content bg-black/90 rounded-xl p-6 w-full max-w-md mx-4 animate-bounce-in transition-all duration-300"
-      >
-        <div class="flex items-center justify-between mb-6">
-          <h3 class="text-xl font-bold text-white">Edit Category</h3>
-          <button
-            onclick="closeModal('editCategoryModal')"
-            class="text-gray-400 hover:text-white"
-          >
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-
-        <form class="space-y-6">
-          <div>
-            <label class="block text-sm font-medium text-gray-400 mb-2"
-              >Category Name</label
-            >
-            <input
-              type="text"
-              id="editCategoryName"
-              class="w-full glass px-4 py-3 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-gray-400 mb-2"
-              >Price</label
-            >
-            <input
-              type="number"
-              id="editCategoryPrice"
-              step="0.01"
-              class="w-full glass px-4 py-3 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-gray-400 mb-2"
-              >Stock Quantity</label
-            >
-            <input
-              type="number"
-              id="editProductstock"
-              class="w-full glass px-4 py-3 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            />
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-gray-400 mb-2"
-              >Status</label
-            >
-            <select
-              id="editProductstatus"
-              class="w-full glass px-4 py-3 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              <option value="active">Active</option>
-              <option value="inactive">Inactive</option>
-              <option value="out_of_stock">Out of Stock</option>
-            </select>
-          </div>
-
-          <div class="flex items-center space-x-4">
-            <button
-              type="button"
-              onclick="closeModal('editCategoryModal')"
-              class="flex-1 glass px-6 py-3 rounded-xl text-gray-400 hover:text-white transition-colors"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 rounded-xl text-white font-bold hover:scale-105 transition-transform"
-            >
-              Update Category
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-
     <script>
-      // Category functions
-      function editCategory(CategoryId, name, price, stock, status) {
-        // Populate the edit form with Category data
-        document.getElementById("editCategoryName").value = name;
-        document.getElementById("editCategoryPrice").value = price;
-        document.getElementById("editProductstock").value = stock;
-        document.getElementById("editProductstatus").value = status;
-
-        // Store Category ID for update
-        document.getElementById("editCategoryModal").dataset.CategoryId =
-          CategoryId;
-
-        openModal("editCategoryModal");
-      }
-
-      function deleteCategory(CategoryId, CategoryName) {
-        if (
-          confirm(
-            `Are you sure you want to delete "${CategoryName}"? This action cannot be undone.`,
-          )
-        ) {
-          console.log("Deleting Category:", CategoryId);
-
-          // Here you would typically send delete request to your backend
-          toastr.success("Category deleted successfully!");
-
-          // Refresh the Products list (in a real app, you'd update the table)
-          setTimeout(() => {
-            location.reload();
-          }, 1000);
-        }
-      }
-
       function previewCategoryImage(event) {
         const input = event.target;
         const preview = document.getElementById("categoryImagePreview");
