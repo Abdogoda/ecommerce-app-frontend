@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize sidebar functionality
   initializeSidebar();
 
+  // Initialize mobile search toggle
+  initializeMobileSearch();
+
   // Initialize animations
   initializeAnimations();
 
@@ -190,6 +193,66 @@ function closeSidebar() {
 
   sidebar && sidebar.classList.add("-translate-x-full");
   sidebarOverlay && sidebarOverlay.classList.add("hidden");
+}
+
+// Mobile search toggle functionality
+function initializeMobileSearch() {
+  const searchToggle = document.getElementById("searchToggle");
+  const mobileSearchForm = document.getElementById("mobileSearchForm");
+  const mobileSearchInput = document.getElementById("mobileSearchInput");
+
+  if (searchToggle && mobileSearchForm) {
+    searchToggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+      toggleMobileSearch();
+    });
+
+    // Close search when clicking outside
+    document.addEventListener("click", (event) => {
+      if (
+        window.innerWidth < 768 &&
+        !mobileSearchForm.contains(event.target) &&
+        !searchToggle.contains(event.target) &&
+        mobileSearchForm.style.maxHeight !== "0px"
+      ) {
+        closeMobileSearch();
+      }
+    });
+  }
+}
+
+function toggleMobileSearch() {
+  const mobileSearchForm = document.getElementById("mobileSearchForm");
+  const mobileSearchInput = document.getElementById("mobileSearchInput");
+
+  if (mobileSearchForm.style.maxHeight === "0px" || !mobileSearchForm.style.maxHeight) {
+    // Open search form
+    mobileSearchForm.style.maxHeight = "80px";
+    mobileSearchForm.classList.remove("hidden");
+    
+    // Focus input after animation
+    setTimeout(() => {
+      if (mobileSearchInput) {
+        mobileSearchInput.focus();
+      }
+    }, 100);
+  } else {
+    // Close search form
+    closeMobileSearch();
+  }
+}
+
+function closeMobileSearch() {
+  const mobileSearchForm = document.getElementById("mobileSearchForm");
+  
+  if (mobileSearchForm) {
+    mobileSearchForm.style.maxHeight = "0px";
+    
+    // Hide after animation completes
+    setTimeout(() => {
+      mobileSearchForm.classList.add("hidden");
+    }, 300);
+  }
 }
 
 // Close modals when clicking outside
