@@ -33,7 +33,7 @@
             <div
               class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center"
             >
-              <i class="fas fa-store text-white text-lg"></i>
+              <i class="fas fa-store text-white"></i>
             </div>
             <div>
               <h2 class="text-xl font-bold text-white">E-Commerce</h2>
@@ -456,9 +456,6 @@
                   <th class="text-left py-4 px-6 text-gray-300 font-medium">
                     Status
                   </th>
-                  <th class="text-center py-4 px-6 text-gray-300 font-medium">
-                    Actions
-                  </th>
                 </tr>
               </thead>
               <tbody id="ordersTableBody">
@@ -466,60 +463,48 @@
                   class="border-b border-white/5 hover:bg-white/5 transition-colors"
                   data-order-id="1"
                 >
-                  <td class="py-4 px-6">
-                    <div class="flex items-center">
+                  <td class="py-4 px-6 text-nowrap">
+                    <a
+                      href="./show.html"
+                      class="flex items-center text-white hover:text-purple-400 transition-colors"
+                    >
                       <div
-                        class="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mr-3"
+                        class="hidden md:flex w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mr-3"
                       >
                         <i class="fas fa-receipt text-white"></i>
                       </div>
                       <div>
-                        <p class="text-white font-medium">#ORD-2024-001</p>
+                        <p class="font-medium">#ORD-2024-001</p>
                       </div>
-                    </div>
+                    </a>
                   </td>
                   <td class="py-4 px-6">
                     <div class="flex items-center">
                       <div>
-                        <p class="text-white font-medium">John Doe</p>
+                        <a
+                          href="../profile.html"
+                          class="text-white hover:text-blue-400 transition-colors font-medium"
+                          >John Doe</a
+                        >
                         <p class="text-gray-400 text-sm">john@example.com</p>
                       </div>
                     </div>
                   </td>
-                  <td class="py-4 px-6">
+                  <td class="py-4 px-6 text-nowrap">
                     <span class="text-white">Jan 15, 2024</span>
                     <br />
                     <span class="text-gray-400 text-sm">2:30 PM</span>
                   </td>
                   <td class="py-4 px-6">
-                    <span class="text-green-400 font-semibold text-lg"
-                      >$1,248.00</span
-                    >
+                    <span class="text-green-400 font-semibold">$1,248.00</span>
                   </td>
                   <td class="py-4 px-6">
                     <span
-                      class="status-pending px-3 py-1 rounded-lg text-sm font-medium"
+                      class="inline-flex items-center gap-2 bg-yellow-500/20 text-yellow-400 px-3 py-1.5 rounded-full text-xs font-semibold border border-yellow-500/30 hover:bg-yellow-500/30 transition-colors cursor-default"
                     >
+                      <i class="fas fa-clock text-xs"></i>
                       Pending
                     </span>
-                  </td>
-                  <td class="py-4 px-6">
-                    <div class="flex items-center justify-center space-x-2">
-                      <a
-                        href="./show.html"
-                        class="bg-blue-500/20 text-blue-400 p-2 rounded-lg hover:bg-blue-500/30 transition-colors"
-                        title="View Order"
-                      >
-                        <i class="fas fa-eye"></i>
-                      </a>
-                      <button
-                        onclick="updateOrderStatus('1', 'processing')"
-                        class="bg-yellow-500/20 text-yellow-400 p-2 rounded-lg hover:bg-yellow-500/30 transition-colors"
-                        title="Update Status"
-                      >
-                        <i class="fas fa-edit"></i>
-                      </button>
-                    </div>
                   </td>
                 </tr>
 
@@ -527,60 +512,48 @@
                   class="border-b border-white/5 hover:bg-white/5 transition-colors"
                   data-order-id="2"
                 >
-                  <td class="py-4 px-6">
-                    <div class="flex items-center">
+                  <td class="py-4 px-6 text-nowrap">
+                    <a
+                      href="./show.html"
+                      class="flex items-center text-white hover:text-purple-400 transition-colors"
+                    >
                       <div
-                        class="w-10 h-10 bg-gradient-to-br from-green-500 to-teal-600 rounded-xl flex items-center justify-center mr-3"
+                        class="hidden md:flex w-10 h-10 bg-gradient-to-br from-green-500 to-teal-600 rounded-xl flex items-center justify-center mr-3"
                       >
                         <i class="fas fa-receipt text-white"></i>
                       </div>
                       <div>
-                        <p class="text-white font-medium">#ORD-2024-002</p>
+                        <p class="font-medium">#ORD-2024-002</p>
                       </div>
-                    </div>
+                    </a>
                   </td>
                   <td class="py-4 px-6">
                     <div class="flex items-center">
                       <div>
-                        <p class="text-white font-medium">Jane Smith</p>
+                        <a
+                          href="../profile.html"
+                          class="text-white hover:text-blue-400 transition-colors font-medium"
+                          >Jane Smith</a
+                        >
                         <p class="text-gray-400 text-sm">jane@example.com</p>
                       </div>
                     </div>
                   </td>
-                  <td class="py-4 px-6">
+                  <td class="py-4 px-6 text-nowrap">
                     <span class="text-white">Jan 14, 2024</span>
                     <br />
                     <span class="text-gray-400 text-sm">11:45 AM</span>
                   </td>
                   <td class="py-4 px-6">
-                    <span class="text-green-400 font-semibold text-lg"
-                      >$459.99</span
-                    >
+                    <span class="text-green-400 font-semibold">$459.99</span>
                   </td>
                   <td class="py-4 px-6">
                     <span
-                      class="status-processing px-3 py-1 rounded-lg text-sm font-medium"
+                      class="inline-flex items-center gap-2 bg-blue-500/20 text-blue-400 px-3 py-1.5 rounded-full text-xs font-semibold border border-blue-500/30 hover:bg-blue-500/30 transition-colors cursor-default"
                     >
+                      <i class="fas fa-cog text-xs"></i>
                       Processing
                     </span>
-                  </td>
-                  <td class="py-4 px-6">
-                    <div class="flex items-center justify-center space-x-2">
-                      <a
-                        href="./show.html"
-                        class="bg-blue-500/20 text-blue-400 p-2 rounded-lg hover:bg-blue-500/30 transition-colors"
-                        title="View Order"
-                      >
-                        <i class="fas fa-eye"></i>
-                      </a>
-                      <button
-                        onclick="updateOrderStatus('2', 'shipped')"
-                        class="bg-yellow-500/20 text-yellow-400 p-2 rounded-lg hover:bg-yellow-500/30 transition-colors"
-                        title="Update Status"
-                      >
-                        <i class="fas fa-edit"></i>
-                      </button>
-                    </div>
                   </td>
                 </tr>
 
@@ -588,60 +561,48 @@
                   class="border-b border-white/5 hover:bg-white/5 transition-colors"
                   data-order-id="3"
                 >
-                  <td class="py-4 px-6">
-                    <div class="flex items-center">
+                  <td class="py-4 px-6 text-nowrap">
+                    <a
+                      href="./show.html"
+                      class="flex items-center text-white hover:text-purple-400 transition-colors"
+                    >
                       <div
-                        class="w-10 h-10 bg-gradient-to-br from-purple-500 to-violet-600 rounded-xl flex items-center justify-center mr-3"
+                        class="hidden md:flex w-10 h-10 bg-gradient-to-br from-purple-500 to-violet-600 rounded-xl flex items-center justify-center mr-3"
                       >
                         <i class="fas fa-receipt text-white"></i>
                       </div>
                       <div>
-                        <p class="text-white font-medium">#ORD-2024-003</p>
+                        <p class="font-medium">#ORD-2024-003</p>
                       </div>
-                    </div>
+                    </a>
                   </td>
                   <td class="py-4 px-6">
                     <div class="flex items-center">
                       <div>
-                        <p class="text-white font-medium">Mike Johnson</p>
+                        <a
+                          href="../profile.html"
+                          class="text-white hover:text-blue-400 transition-colors font-medium"
+                          >Mike Johnson</a
+                        >
                         <p class="text-gray-400 text-sm">mike@example.com</p>
                       </div>
                     </div>
                   </td>
-                  <td class="py-4 px-6">
+                  <td class="py-4 px-6 text-nowrap">
                     <span class="text-white">Jan 13, 2024</span>
                     <br />
                     <span class="text-gray-400 text-sm">4:20 PM</span>
                   </td>
                   <td class="py-4 px-6">
-                    <span class="text-green-400 font-semibold text-lg"
-                      >$129.99</span
-                    >
+                    <span class="text-green-400 font-semibold">$129.99</span>
                   </td>
                   <td class="py-4 px-6">
                     <span
-                      class="status-delivered px-3 py-1 rounded-lg text-sm font-medium"
+                      class="inline-flex items-center gap-2 bg-green-500/20 text-green-400 px-3 py-1.5 rounded-full text-xs font-semibold border border-green-500/30 hover:bg-green-500/30 transition-colors cursor-default"
                     >
+                      <i class="fas fa-check text-xs"></i>
                       Delivered
                     </span>
-                  </td>
-                  <td class="py-4 px-6">
-                    <div class="flex items-center justify-center space-x-2">
-                      <a
-                        href="./show.html"
-                        class="bg-blue-500/20 text-blue-400 p-2 rounded-lg hover:bg-blue-500/30 transition-colors"
-                        title="View Order"
-                      >
-                        <i class="fas fa-eye"></i>
-                      </a>
-                      <button
-                        onclick="updateOrderStatus('3', 'delivered')"
-                        class="bg-yellow-500/20 text-yellow-400 p-2 rounded-lg hover:bg-yellow-500/30 transition-colors"
-                        title="Update Status"
-                      >
-                        <i class="fas fa-edit"></i>
-                      </button>
-                    </div>
                   </td>
                 </tr>
 
@@ -649,60 +610,48 @@
                   class="border-b border-white/5 hover:bg-white/5 transition-colors"
                   data-order-id="4"
                 >
-                  <td class="py-4 px-6">
-                    <div class="flex items-center">
+                  <td class="py-4 px-6 text-nowrap">
+                    <a
+                      href="./show.html"
+                      class="flex items-center text-white hover:text-purple-400 transition-colors"
+                    >
                       <div
-                        class="w-10 h-10 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center mr-3"
+                        class="hidden md:flex w-10 h-10 bg-gradient-to-br from-orange-500 to-red-600 rounded-xl flex items-center justify-center mr-3"
                       >
                         <i class="fas fa-receipt text-white"></i>
                       </div>
                       <div>
-                        <p class="text-white font-medium">#ORD-2024-004</p>
+                        <p class="font-medium">#ORD-2024-004</p>
                       </div>
-                    </div>
+                    </a>
                   </td>
                   <td class="py-4 px-6">
                     <div class="flex items-center">
                       <div>
-                        <p class="text-white font-medium">Sarah Wilson</p>
+                        <a
+                          href="../profile.html"
+                          class="text-white hover:text-blue-400 transition-colors font-medium"
+                          >Sarah Wilson</a
+                        >
                         <p class="text-gray-400 text-sm">sarah@example.com</p>
                       </div>
                     </div>
                   </td>
-                  <td class="py-4 px-6">
+                  <td class="py-4 px-6 text-nowrap">
                     <span class="text-white">Jan 12, 2024</span>
                     <br />
                     <span class="text-gray-400 text-sm">9:15 AM</span>
                   </td>
                   <td class="py-4 px-6">
-                    <span class="text-green-400 font-semibold text-lg"
-                      >$2,999.00</span
-                    >
+                    <span class="text-green-400 font-semibold">$2,999.00</span>
                   </td>
                   <td class="py-4 px-6">
                     <span
-                      class="status-shipped px-3 py-1 rounded-lg text-sm font-medium"
+                      class="inline-flex items-center gap-2 bg-blue-500/20 text-blue-400 px-3 py-1.5 rounded-full text-xs font-semibold border border-blue-500/30 hover:bg-blue-500/30 transition-colors cursor-default"
                     >
+                      <i class="fas fa-truck text-xs"></i>
                       Shipped
                     </span>
-                  </td>
-                  <td class="py-4 px-6">
-                    <div class="flex items-center justify-center space-x-2">
-                      <a
-                        href="./show.html"
-                        class="bg-blue-500/20 text-blue-400 p-2 rounded-lg hover:bg-blue-500/30 transition-colors"
-                        title="View Order"
-                      >
-                        <i class="fas fa-eye"></i>
-                      </a>
-                      <button
-                        onclick="updateOrderStatus('4', 'delivered')"
-                        class="bg-yellow-500/20 text-yellow-400 p-2 rounded-lg hover:bg-yellow-500/30 transition-colors"
-                        title="Update Status"
-                      >
-                        <i class="fas fa-edit"></i>
-                      </button>
-                    </div>
                   </td>
                 </tr>
 
@@ -710,60 +659,48 @@
                   class="border-b border-white/5 hover:bg-white/5 transition-colors"
                   data-order-id="5"
                 >
-                  <td class="py-4 px-6">
-                    <div class="flex items-center">
+                  <td class="py-4 px-6 text-nowrap">
+                    <a
+                      href="./show.html"
+                      class="flex items-center text-white hover:text-purple-400 transition-colors"
+                    >
                       <div
-                        class="w-10 h-10 bg-gradient-to-br from-gray-500 to-slate-600 rounded-xl flex items-center justify-center mr-3"
+                        class="hidden md:flex w-10 h-10 bg-gradient-to-br from-gray-500 to-slate-600 rounded-xl flex items-center justify-center mr-3"
                       >
                         <i class="fas fa-receipt text-white"></i>
                       </div>
                       <div>
-                        <p class="text-white font-medium">#ORD-2024-005</p>
+                        <p class="font-medium">#ORD-2024-005</p>
                       </div>
-                    </div>
+                    </a>
                   </td>
                   <td class="py-4 px-6">
                     <div class="flex items-center">
                       <div>
-                        <p class="text-white font-medium">David Brown</p>
+                        <a
+                          href="../profile.html"
+                          class="text-white hover:text-blue-400 transition-colors font-medium"
+                          >David Brown</a
+                        >
                         <p class="text-gray-400 text-sm">david@example.com</p>
                       </div>
                     </div>
                   </td>
-                  <td class="py-4 px-6">
+                  <td class="py-4 px-6 text-nowrap">
                     <span class="text-white">Jan 11, 2024</span>
                     <br />
                     <span class="text-gray-400 text-sm">6:45 PM</span>
                   </td>
                   <td class="py-4 px-6">
-                    <span class="text-green-400 font-semibold text-lg"
-                      >$89.99</span
-                    >
+                    <span class="text-green-400 font-semibold">$89.99</span>
                   </td>
                   <td class="py-4 px-6">
                     <span
-                      class="status-cancelled px-3 py-1 rounded-lg text-sm font-medium"
+                      class="inline-flex items-center gap-2 bg-red-500/20 text-red-400 px-3 py-1.5 rounded-full text-xs font-semibold border border-red-500/30 hover:bg-red-500/30 transition-colors cursor-default"
                     >
+                      <i class="fas fa-times text-xs"></i>
                       Cancelled
                     </span>
-                  </td>
-                  <td class="py-4 px-6">
-                    <div class="flex items-center justify-center space-x-2">
-                      <a
-                        href="./show.html"
-                        class="bg-blue-500/20 text-blue-400 p-2 rounded-lg hover:bg-blue-500/30 transition-colors"
-                        title="View Order"
-                      >
-                        <i class="fas fa-eye"></i>
-                      </a>
-                      <button
-                        onclick="updateOrderStatus('5', 'pending')"
-                        class="bg-yellow-500/20 text-yellow-400 p-2 rounded-lg hover:bg-yellow-500/30 transition-colors"
-                        title="Update Status"
-                      >
-                        <i class="fas fa-edit"></i>
-                      </button>
-                    </div>
                   </td>
                 </tr>
               </tbody>
