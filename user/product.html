@@ -152,7 +152,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-16">
           <!-- Product Images -->
           <div class="animate-fade-in-left lg:col-span-2">
-            <div class="mb-6 max-w-md lg:max-w-none">
+            <div class="mb-6">
               <div
                 class="relative overflow-hidden rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 shadow-2xl"
               >
@@ -173,7 +173,7 @@
             </div>
 
             <!-- Thumbnail Images -->
-            <div class="grid grid-cols-3 gap-4 max-w-md lg:max-w-none">
+            <div class="grid grid-cols-3 gap-4">
               <div class="group cursor-pointer">
                 <img
                   src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80"
@@ -562,49 +562,24 @@
     <!-- Then load main.js -->
     <script src="../assets/js/user/main.js"></script>
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        console.log("Product page loaded - initializing");
+      function changeMainImage(thumbnail) {
+        const mainImage = document.getElementById("mainImage");
+        mainImage.style.opacity = "0.5";
 
-        // Product-specific JavaScript
-        function changeMainImage(thumbnail) {
-          const mainImage = document.getElementById("mainImage");
-          mainImage.style.opacity = "0.5";
+        setTimeout(() => {
+          mainImage.src = thumbnail.src;
+          mainImage.style.opacity = "1";
+        }, 150);
 
-          setTimeout(() => {
-            mainImage.src = thumbnail.src;
-            mainImage.style.opacity = "1";
-          }, 150);
+        // Update active thumbnail
+        document.querySelectorAll(".group img").forEach((img) => {
+          img.classList.remove("border-blue-500");
+          img.classList.add("border-transparent");
+        });
 
-          // Update active thumbnail
-          document.querySelectorAll(".group img").forEach((img) => {
-            img.classList.remove("border-blue-500");
-            img.classList.add("border-transparent");
-          });
-
-          thumbnail.classList.remove("border-transparent");
-          thumbnail.classList.add("border-blue-500");
-        }
-
-        // Make function globally available
-        window.changeMainImage = changeMainImage;
-
-        // Function to get quantity (defaulting to 1 for now)
-        window.getQuantity = function () {
-          // You can modify this to get quantity from an input field if you add one
-          return 1;
-        };
-
-        // Test cart functionality
-        console.log("Testing cart functions availability:");
-        console.log(
-          "addToCart function available:",
-          typeof addToCart === "function",
-        );
-        console.log(
-          "updateCartBadge function available:",
-          typeof updateCartBadge === "function",
-        );
-      });
+        thumbnail.classList.remove("border-transparent");
+        thumbnail.classList.add("border-blue-500");
+      }
     </script>
   </body>
 </html>
