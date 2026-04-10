@@ -306,7 +306,6 @@ function clearError(field) {
   }
 }
 
-
 // Export functions for use in other scripts
 window.UserCommon = {
   showToast,
@@ -319,13 +318,10 @@ window.UserCommon = {
   currentUser,
 };
 
-
 // Password visibility toggle
 function togglePassword(inputId) {
   const input = document.getElementById(inputId);
-  const button = input
-    .closest("div")
-    ?.querySelector('button[type="button"]');
+  const button = input.closest("div")?.querySelector('button[type="button"]');
   const icon = button?.querySelector("i, svg");
 
   if (!input || !button || !icon) {

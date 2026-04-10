@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // Modal functions
 function syncModalBodyScrollLock() {
   const hasOpenModal = document.querySelector(
-    '.fixed.inset-0:not(.hidden):not(#sidebarOverlay)',
+    ".fixed.inset-0:not(.hidden):not(#sidebarOverlay)",
   );
 
   if (hasOpenModal) {
@@ -225,11 +225,14 @@ function toggleMobileSearch() {
   const mobileSearchForm = document.getElementById("mobileSearchForm");
   const mobileSearchInput = document.getElementById("mobileSearchInput");
 
-  if (mobileSearchForm.style.maxHeight === "0px" || !mobileSearchForm.style.maxHeight) {
+  if (
+    mobileSearchForm.style.maxHeight === "0px" ||
+    !mobileSearchForm.style.maxHeight
+  ) {
     // Open search form
     mobileSearchForm.style.maxHeight = "80px";
     mobileSearchForm.classList.remove("hidden");
-    
+
     // Focus input after animation
     setTimeout(() => {
       if (mobileSearchInput) {
@@ -244,10 +247,10 @@ function toggleMobileSearch() {
 
 function closeMobileSearch() {
   const mobileSearchForm = document.getElementById("mobileSearchForm");
-  
+
   if (mobileSearchForm) {
     mobileSearchForm.style.maxHeight = "0px";
-    
+
     // Hide after animation completes
     setTimeout(() => {
       mobileSearchForm.classList.add("hidden");
@@ -337,9 +340,7 @@ function switchTab(tabName) {
 
   // Show selected tab content
   if (document.getElementById(tabName)) {
-    document
-    .getElementById(tabName)
-    .classList.remove("hidden");
+    document.getElementById(tabName).classList.remove("hidden");
   }
 
   // Add active class to selected tab button
@@ -347,7 +348,6 @@ function switchTab(tabName) {
   activeTab.classList.add("active", "text-blue-400");
   activeTab.classList.remove("text-gray-400");
 }
-
 
 // Password visibility toggle
 function togglePassword(inputId) {

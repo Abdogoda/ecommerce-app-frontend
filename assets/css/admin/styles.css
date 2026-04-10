@@ -70,7 +70,9 @@ body.modal-open .fixed.inset-0:not(.hidden):not(#sidebarOverlay) {
   -webkit-overflow-scrolling: touch;
 }
 
-body.modal-open .fixed.inset-0:not(.hidden):not(#sidebarOverlay) .modal-content {
+body.modal-open
+  .fixed.inset-0:not(.hidden):not(#sidebarOverlay)
+  .modal-content {
   max-height: calc(100dvh - 4rem);
 }
 
