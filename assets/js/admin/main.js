@@ -24,11 +24,24 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Modal functions
+function syncModalBodyScrollLock() {
+  const hasOpenModal = document.querySelector(
+    '.fixed.inset-0:not(.hidden):not(#sidebarOverlay)',
+  );
+
+  if (hasOpenModal) {
+    document.body.classList.add("modal-open");
+  } else {
+    document.body.classList.remove("modal-open");
+  }
+}
+
 function openModal(id) {
   const modal = document.getElementById(id);
   if (modal) {
     modal.classList.remove("hidden");
     modal.classList.add("animate-fade-in");
+    syncModalBodyScrollLock();
 
     // Focus first input if exists
     const firstInput = modal.querySelector("input, textarea");
@@ -43,6 +56,7 @@ function closeModal(id) {
   if (modal) {
     modal.classList.add("hidden");
     modal.classList.remove("animate-fade-in");
+    syncModalBodyScrollLock();
   }
 }
 
