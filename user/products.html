@@ -505,19 +505,5 @@
     <!-- User Scripts -->
     <script src="../assets/js/user/cart.js"></script>
     <script src="../assets/js/user/main.js"></script>
-    <script>
-      // Products-specific functionality
-      document.addEventListener("DOMContentLoaded", function () {
-        // Filter form handling
-        const filterForm = document.getElementById("filterForm");
-        if (filterForm) {
-          filterForm.addEventListener("submit", function (e) {
-            e.preventDefault();
-            // Here you would typically send the filter data to your backend
-            showToast("info", "Filters applied!");
-          });
-        }
-      });
-    </script>
   </body>
 </html>
