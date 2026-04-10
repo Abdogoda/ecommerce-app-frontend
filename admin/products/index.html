@@ -344,7 +344,7 @@
               <p class="text-gray-400">Manage your product inventory</p>
             </div>
             <button
-              onclick="openAddProductModal()"
+              onclick="openModal('addProductModal')"
               class="btn-primary px-6 py-3 rounded-lg text-white font-medium hover:shadow-xl transition-all duration-300"
             >
               <i class="fas fa-plus mr-2"></i>
@@ -453,20 +453,16 @@
                   >
                     Status
                   </th>
-                  <th
-                    class="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider"
-                  >
-                    Actions
-                  </th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-gray-700">
                 <!-- Product rows -->
-                <tr
-                  class="table-row border-l-4 border-transparent hover:border-blue-500"
-                >
+                <tr class="table-row">
                   <td class="px-6 py-4">
-                    <div class="flex items-center">
+                    <a
+                      href="./show.html"
+                      class="flex items-center text-white hover:text-blue-300 transition-colors"
+                    >
                       <img
                         class="w-12 h-12 rounded-lg object-cover mr-4 transition-transform duration-300 hover:scale-110"
                         src="https://picsum.photos/48/48?random=1"
@@ -475,9 +471,6 @@
                       <div>
                         <div class="text-sm font-medium text-white">
                           Premium Wireless Headphones
-                        </div>
-                        <div class="text-sm text-gray-400">
-                          SKU: WH-2024-001
                         </div>
                       </div>
                     </div>
@@ -498,35 +491,14 @@
                       >Active</span
                     >
                   </td>
-                  <td class="px-6 py-4">
-                    <div class="flex items-center space-x-2">
-                      <a
-                        href="show.html"
-                        class="action-btn p-2 text-blue-400 hover:text-blue-300 rounded-lg hover:bg-blue-500/10"
-                      >
-                        <i class="fas fa-eye"></i>
-                      </a>
-                      <button
-                        onclick="editProduct(1)"
-                        class="action-btn p-2 text-yellow-400 hover:text-yellow-300 rounded-lg hover:bg-yellow-500/10"
-                      >
-                        <i class="fas fa-edit"></i>
-                      </button>
-                      <button
-                        onclick="deleteProduct(1)"
-                        class="action-btn p-2 text-red-400 hover:text-red-300 rounded-lg hover:bg-red-500/10"
-                      >
-                        <i class="fas fa-trash"></i>
-                      </button>
-                    </div>
-                  </td>
                 </tr>
 
-                <tr
-                  class="table-row border-l-4 border-transparent hover:border-blue-500"
-                >
+                <tr class="table-row">
                   <td class="px-6 py-4">
-                    <div class="flex items-center">
+                    <a
+                      href="./show.html"
+                      class="flex items-center text-white hover:text-blue-300 transition-colors"
+                    >
                       <img
                         class="w-12 h-12 rounded-lg object-cover mr-4 transition-transform duration-300 hover:scale-110"
                         src="https://picsum.photos/48/48?random=2"
@@ -536,11 +508,8 @@
                         <div class="text-sm font-medium text-white">
                           Smartphone Case
                         </div>
-                        <div class="text-sm text-gray-400">
-                          SKU: SC-2024-002
-                        </div>
                       </div>
-                    </div>
+                    </a>
                   </td>
                   <td class="px-6 py-4">
                     <span
@@ -558,35 +527,14 @@
                       >Active</span
                     >
                   </td>
-                  <td class="px-6 py-4">
-                    <div class="flex items-center space-x-2">
-                      <a
-                        href="show.html"
-                        class="action-btn p-2 text-blue-400 hover:text-blue-300 rounded-lg hover:bg-blue-500/10"
-                      >
-                        <i class="fas fa-eye"></i>
-                      </a>
-                      <button
-                        onclick="editProduct(2)"
-                        class="action-btn p-2 text-yellow-400 hover:text-yellow-300 rounded-lg hover:bg-yellow-500/10"
-                      >
-                        <i class="fas fa-edit"></i>
-                      </button>
-                      <button
-                        onclick="deleteProduct(2)"
-                        class="action-btn p-2 text-red-400 hover:text-red-300 rounded-lg hover:bg-red-500/10"
-                      >
-                        <i class="fas fa-trash"></i>
-                      </button>
-                    </div>
-                  </td>
                 </tr>
 
-                <tr
-                  class="table-row border-l-4 border-transparent hover:border-blue-500"
-                >
+                <tr class="table-row">
                   <td class="px-6 py-4">
-                    <div class="flex items-center">
+                    <a
+                      href="./show.html"
+                      class="flex items-center text-white hover:text-blue-300 transition-colors"
+                    >
                       <img
                         class="w-12 h-12 rounded-lg object-cover mr-4 transition-transform duration-300 hover:scale-110"
                         src="https://picsum.photos/48/48?random=3"
@@ -596,11 +544,8 @@
                         <div class="text-sm font-medium text-white">
                           Cotton T-Shirt
                         </div>
-                        <div class="text-sm text-gray-400">
-                          SKU: TS-2024-003
-                        </div>
                       </div>
-                    </div>
+                    </a>
                   </td>
                   <td class="px-6 py-4">
                     <span
@@ -618,47 +563,23 @@
                       >Out of Stock</span
                     >
                   </td>
-                  <td class="px-6 py-4">
-                    <div class="flex items-center space-x-2">
-                      <a
-                        href="show.html"
-                        class="action-btn p-2 text-blue-400 hover:text-blue-300 rounded-lg hover:bg-blue-500/10"
-                      >
-                        <i class="fas fa-eye"></i>
-                      </a>
-                      <button
-                        onclick="editProduct(3)"
-                        class="action-btn p-2 text-yellow-400 hover:text-yellow-300 rounded-lg hover:bg-yellow-500/10"
-                      >
-                        <i class="fas fa-edit"></i>
-                      </button>
-                      <button
-                        onclick="deleteProduct(3)"
-                        class="action-btn p-2 text-red-400 hover:text-red-300 rounded-lg hover:bg-red-500/10"
-                      >
-                        <i class="fas fa-trash"></i>
-                      </button>
-                    </div>
-                  </td>
                 </tr>
 
                 <tr class="table-row">
                   <td class="px-6 py-4">
-                    <div class="flex items-center">
+                    <a
+                      href="./show.html"
+                      class="flex items-center text-white hover:text-blue-300 transition-colors"
+                    >
                       <img
                         class="w-12 h-12 rounded-lg object-cover mr-4"
                         src="https://picsum.photos/48/48?random=4"
                         alt="Product"
                       />
                       <div>
-                        <div class="text-sm font-medium text-white">
-                          Programming Book
-                        </div>
-                        <div class="text-sm text-gray-400">
-                          SKU: BK-2024-004
-                        </div>
+                        <div class="text-sm font-medium">Programming Book</div>
                       </div>
-                    </div>
+                    </a>
                   </td>
                   <td class="px-6 py-4">
                     <span
@@ -676,31 +597,14 @@
                       >Active</span
                     >
                   </td>
-                  <td class="px-6 py-4">
-                    <div class="flex items-center space-x-2">
-                      <a
-                        href="show.html"
-                        class="p-2 text-blue-400 hover:text-blue-300 transition-colors"
-                      >
-                        <i class="fas fa-eye"></i>
-                      </a>
-                      <button
-                        class="p-2 text-yellow-400 hover:text-yellow-300 transition-colors"
-                      >
-                        <i class="fas fa-edit"></i>
-                      </button>
-                      <button
-                        class="p-2 text-red-400 hover:text-red-300 transition-colors"
-                      >
-                        <i class="fas fa-trash"></i>
-                      </button>
-                    </div>
-                  </td>
                 </tr>
 
                 <tr class="table-row">
                   <td class="px-6 py-4">
-                    <div class="flex items-center">
+                    <a
+                      href="./show.html"
+                      class="flex items-center text-white hover:text-blue-300 transition-colors"
+                    >
                       <img
                         class="w-12 h-12 rounded-lg object-cover mr-4"
                         src="https://picsum.photos/48/48?random=5"
@@ -710,11 +614,8 @@
                         <div class="text-sm font-medium text-white">
                           Garden Tools Set
                         </div>
-                        <div class="text-sm text-gray-400">
-                          SKU: GT-2024-005
-                        </div>
                       </div>
-                    </div>
+                    </a>
                   </td>
                   <td class="px-6 py-4">
                     <span
@@ -731,26 +632,6 @@
                       class="px-2 py-1 bg-gray-500/20 text-gray-400 rounded-full text-xs"
                       >Draft</span
                     >
-                  </td>
-                  <td class="px-6 py-4">
-                    <div class="flex items-center space-x-2">
-                      <a
-                        href="show.html"
-                        class="p-2 text-blue-400 hover:text-blue-300 transition-colors"
-                      >
-                        <i class="fas fa-eye"></i>
-                      </a>
-                      <button
-                        class="p-2 text-yellow-400 hover:text-yellow-300 transition-colors"
-                      >
-                        <i class="fas fa-edit"></i>
-                      </button>
-                      <button
-                        class="p-2 text-red-400 hover:text-red-300 transition-colors"
-                      >
-                        <i class="fas fa-trash"></i>
-                      </button>
-                    </div>
                   </td>
                 </tr>
               </tbody>
@@ -811,10 +692,17 @@
       class="hidden fixed inset-0 bg-black/50 z-50 backdrop-blur-sm flex items-center justify-center"
     >
       <div
-        class="glass rounded-2xl max-w-2xl w-full p-8 animate-bounce-in max-h-[90vh] overflow-y-auto"
+        class="modal-content bg-black/90 rounded-xl p-6 w-full max-w-lg mx-4 animate-bounce-in transition-all duration-300"
       >
         <div class="flex items-center justify-between mb-6">
-          <h3 class="text-xl font-bold text-white">Add New Product</h3>
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mr-3"
+            >
+              <i class="fas fa-plus text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Add New Product</h3>
+          </div>
           <button
             onclick="closeModal('addProductModal')"
             class="text-gray-400 hover:text-white"
@@ -824,31 +712,17 @@
         </div>
 
         <form onsubmit="addProduct(event)" class="space-y-6">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label class="block text-sm font-medium text-gray-400 mb-2"
-                >Product Name</label
-              >
-              <input
-                type="text"
-                name="name"
-                placeholder="Enter product name"
-                class="w-full glass px-4 py-3 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-400 mb-2"
-                >SKU</label
-              >
-              <input
-                type="text"
-                name="sku"
-                placeholder="Enter SKU"
-                class="w-full glass px-4 py-3 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
-            </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-400 mb-2"
+              >Product Name</label
+            >
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter product name"
+              class="w-full glass px-4 py-3 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
           </div>
 
           <div>
@@ -953,514 +827,5 @@
         </form>
       </div>
     </div>
-
-    <!-- Edit Product Modal -->
-    <div
-      id="editProductModal"
-      class="hidden fixed inset-0 bg-black/50 z-50 backdrop-blur-sm flex items-center justify-center"
-    >
-      <div
-        class="glass rounded-2xl max-w-2xl w-full p-8 animate-bounce-in max-h-[90vh] overflow-y-auto"
-      >
-        <div class="flex items-center justify-between mb-6">
-          <h3 class="text-xl font-bold text-white">Edit Product</h3>
-          <button
-            onclick="closeModal('editProductModal')"
-            class="text-gray-400 hover:text-white"
-          >
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-
-        <form onsubmit="updateProduct(event)" class="space-y-6">
-          <input type="hidden" name="id" id="editProductId" />
-
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label class="block text-sm font-medium text-gray-400 mb-2"
-                >Product Name</label
-              >
-              <input
-                type="text"
-                name="name"
-                id="editProductName"
-                placeholder="Enter product name"
-                class="w-full glass px-4 py-3 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-400 mb-2"
-                >SKU</label
-              >
-              <input
-                type="text"
-                name="sku"
-                id="editProductSku"
-                placeholder="Enter SKU"
-                class="w-full glass px-4 py-3 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-gray-400 mb-2"
-              >Description</label
-            >
-            <textarea
-              name="description"
-              id="editProductDescription"
-              rows="3"
-              placeholder="Enter product description"
-              class="w-full glass px-4 py-3 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            ></textarea>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div>
-              <label class="block text-sm font-medium text-gray-400 mb-2"
-                >Category</label
-              >
-              <select
-                name="category"
-                id="editProductCategory"
-                class="w-full glass px-4 py-3 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              >
-                <option value="">Select Category</option>
-                <option value="electronics">Electronics</option>
-                <option value="clothing">Clothing</option>
-                <option value="books">Books</option>
-                <option value="home">Home & Garden</option>
-              </select>
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-400 mb-2"
-                >Price ($)</label
-              >
-              <input
-                type="number"
-                name="price"
-                id="editProductPrice"
-                step="0.01"
-                placeholder="0.00"
-                class="w-full glass px-4 py-3 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-400 mb-2"
-                >Stock Quantity</label
-              >
-              <input
-                type="number"
-                name="stock"
-                id="editProductStock"
-                placeholder="0"
-                class="w-full glass px-4 py-3 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                required
-              />
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-gray-400 mb-2"
-              >Product Image</label
-            >
-            <input
-              type="file"
-              name="image"
-              accept="image/*"
-              class="w-full glass px-4 py-3 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <p class="text-xs text-gray-400 mt-1">
-              Leave empty to keep current image
-            </p>
-          </div>
-
-          <div>
-            <label class="block text-sm font-medium text-gray-400 mb-2"
-              >Status</label
-            >
-            <select
-              name="status"
-              id="editProductStatus"
-              class="w-full glass px-4 py-3 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
-              required
-            >
-              <option value="active">Active</option>
-              <option value="inactive">Inactive</option>
-              <option value="draft">Draft</option>
-            </select>
-          </div>
-
-          <div class="flex justify-end space-x-3 pt-4">
-            <button
-              type="button"
-              onclick="closeModal('editProductModal')"
-              class="px-6 py-2 bg-gray-600/50 hover:bg-gray-600/70 rounded-lg text-white font-medium transition-colors"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              class="btn-warning px-6 py-2 rounded-lg text-white font-medium"
-            >
-              <i class="fas fa-save mr-2"></i>
-              Update Product
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <!-- Delete Product Modal -->
-    <div
-      id="deleteProductModal"
-      class="hidden fixed inset-0 bg-black/50 z-50 backdrop-blur-sm flex items-center justify-center"
-    >
-      <div
-        class="modal-content bg-black/90 rounded-xl p-6 w-full max-w-md mx-4 animate-bounce-in transition-all duration-300"
-      >
-        <div class="flex items-center justify-between mb-6">
-          <h3 class="text-xl font-bold text-white">Delete Product</h3>
-          <button
-            onclick="closeModal('deleteProductModal')"
-            class="text-gray-400 hover:text-white"
-          >
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-
-        <div class="text-center mb-6">
-          <div
-            class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-500/20 mb-4"
-          >
-            <i class="fas fa-exclamation-triangle text-red-400 text-xl"></i>
-          </div>
-          <h4 class="text-lg font-medium text-white mb-2">Are you sure?</h4>
-          <p class="text-sm text-gray-400">
-            This action cannot be undone. The product "<span
-              id="deleteProductName"
-              class="font-medium text-white"
-            ></span
-            >" will be permanently deleted.
-          </p>
-        </div>
-
-        <div class="flex justify-end space-x-3">
-          <button
-            type="button"
-            onclick="closeModal('deleteProductModal')"
-            class="px-6 py-2 bg-gray-600/50 hover:bg-gray-600/70 rounded-lg text-white font-medium transition-colors"
-          >
-            Cancel
-          </button>
-          <button
-            onclick="confirmDeleteProduct()"
-            class="btn-danger px-6 py-2 rounded-lg text-white font-medium"
-            id="confirmDeleteBtn"
-          >
-            <i class="fas fa-trash mr-2"></i>
-            Delete Product
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- JavaScript for mobile menu and sidebar -->
-    <script>
-      // Mobile sidebar toggle
-      const toggleSidebar = document.getElementById("toggleSidebar");
-      const sidebar = document.getElementById("sidebar");
-
-      toggleSidebar.addEventListener("click", () => {
-        sidebar.classList.toggle("-translate-x-full");
-      });
-
-      // Close sidebar when clicking outside on mobile
-      document.addEventListener("click", (e) => {
-        if (window.innerWidth < 768) {
-          if (
-            !sidebar.contains(e.target) &&
-            !toggleSidebar.contains(e.target)
-          ) {
-            sidebar.classList.add("-translate-x-full");
-          }
-        }
-      });
-
-      // Handle window resize
-      window.addEventListener("resize", () => {
-        if (window.innerWidth >= 768) {
-          sidebar.classList.remove("-translate-x-full");
-        } else {
-          sidebar.classList.add("-translate-x-full");
-        }
-      });
-
-      // Modal functions
-      function openModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.classList.remove("hidden");
-        modal.classList.add("flex");
-        setTimeout(() => {
-          modal.querySelector(".glass").classList.add("animate-bounce-in");
-        }, 10);
-      }
-
-      function closeModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.classList.add("hidden");
-        modal.classList.remove("flex");
-        modal.querySelector(".glass").classList.remove("animate-bounce-in");
-
-        // Reset forms when closing modals
-        if (modalId === "addProductModal") {
-          document.querySelector("#addProductModal form").reset();
-        } else if (modalId === "editProductModal") {
-          document.querySelector("#editProductModal form").reset();
-        }
-      }
-
-      // Product management functions
-      function openAddProductModal() {
-        openModal("addProductModal");
-      }
-
-      function editProduct(id) {
-        // Get product data (in real app, this would come from API)
-        const productData = getProductData(id);
-
-        // Populate edit form
-        document.getElementById("editProductId").value = id;
-        document.getElementById("editProductName").value = productData.name;
-        document.getElementById("editProductSku").value = productData.sku;
-        document.getElementById("editProductDescription").value =
-          productData.description;
-        document.getElementById("editProductCategory").value =
-          productData.category;
-        document.getElementById("editProductPrice").value = productData.price;
-        document.getElementById("editProductStock").value = productData.stock;
-        document.getElementById("editProductStatus").value = productData.status;
-
-        openModal("editProductModal");
-      }
-
-      function deleteProduct(id) {
-        // Get product data (in real app, this would come from API)
-        const productData = getProductData(id);
-
-        // Store product ID for deletion
-        window.productToDelete = id;
-
-        // Set product name in modal
-        document.getElementById("deleteProductName").textContent =
-          productData.name;
-
-        openModal("deleteProductModal");
-      }
-
-      function confirmDeleteProduct() {
-        if (window.productToDelete) {
-          // Here you would make API call to delete product
-          console.log("Deleting product:", window.productToDelete);
-
-          // Show success message (using toastr if available, or alert as fallback)
-          if (typeof toastr !== "undefined") {
-            toastr.success("Product deleted successfully!");
-          } else {
-            alert("Product deleted successfully!");
-          }
-
-          closeModal("deleteProductModal");
-
-          // In real app, you would refresh the table or remove the specific row
-          setTimeout(() => {
-            location.reload();
-          }, 1500);
-
-          window.productToDelete = null;
-        }
-      }
-
-      // Form submission handlers
-      function addProduct(event) {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const productData = Object.fromEntries(formData);
-
-        // Here you would make API call to create product
-        console.log("Creating product:", productData);
-
-        // Show success message
-        if (typeof toastr !== "undefined") {
-          toastr.success("Product added successfully!");
-        } else {
-          alert("Product added successfully!");
-        }
-
-        closeModal("addProductModal");
-
-        // In real app, you would refresh the table or add the new row
-        setTimeout(() => {
-          location.reload();
-        }, 1500);
-      }
-
-      function updateProduct(event) {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const productData = Object.fromEntries(formData);
-
-        // Here you would make API call to update product
-        console.log("Updating product:", productData);
-
-        // Show success message
-        if (typeof toastr !== "undefined") {
-          toastr.success("Product updated successfully!");
-        } else {
-          alert("Product updated successfully!");
-        }
-
-        closeModal("editProductModal");
-
-        // In real app, you would refresh the table or update the specific row
-        setTimeout(() => {
-          location.reload();
-        }, 1500);
-      }
-
-      // Helper function to get product data (mock data for demo)
-      function getProductData(id) {
-        const products = {
-          1: {
-            name: "Premium Wireless Headphones",
-            sku: "WH-2024-001",
-            description:
-              "High-quality wireless headphones with noise cancellation",
-            category: "electronics",
-            price: 299.99,
-            stock: 45,
-            status: "active",
-          },
-          2: {
-            name: "Smartphone Case",
-            sku: "SC-2024-002",
-            description: "Protective case for smartphones",
-            category: "electronics",
-            price: 24.99,
-            stock: 8,
-            status: "active",
-          },
-          3: {
-            name: "Cotton T-Shirt",
-            sku: "TS-2024-003",
-            description: "Comfortable cotton t-shirt",
-            category: "clothing",
-            price: 19.99,
-            stock: 0,
-            status: "active",
-          },
-        };
-
-        return (
-          products[id] || {
-            name: "Unknown Product",
-            sku: "UNKNOWN",
-            description: "",
-            category: "",
-            price: 0,
-            stock: 0,
-            status: "active",
-          }
-        );
-      }
-
-      // Initialize animations on page load
-      document.addEventListener("DOMContentLoaded", function () {
-        // Initialize toastr if available
-        if (typeof toastr !== "undefined") {
-          toastr.options = {
-            closeButton: true,
-            progressBar: true,
-            timeOut: "3500",
-            positionClass: "toast-top-right",
-            showDuration: "300",
-            hideDuration: "300",
-            showEasing: "swing",
-            hideEasing: "linear",
-            showMethod: "fadeIn",
-            hideMethod: "fadeOut",
-          };
-        }
-
-        // Trigger animations for elements that should animate on load
-        const animatedElements = document.querySelectorAll(
-          ".fade-in-up, .fade-in-left, .fade-in-right",
-        );
-
-        // Add a small delay to ensure smooth loading
-        setTimeout(() => {
-          animatedElements.forEach((element) => {
-            element.style.opacity = "0";
-            element.style.transform = element.classList.contains("fade-in-up")
-              ? "translateY(30px)"
-              : element.classList.contains("fade-in-left")
-                ? "translateX(-30px)"
-                : "translateX(30px)";
-
-            // Trigger animation
-            setTimeout(() => {
-              element.style.transition = "all 0.6s ease-out";
-              element.style.opacity = "1";
-              element.style.transform = "translate(0, 0)";
-            }, 100);
-          });
-        }, 100);
-
-        // Add table row hover effect enhancement
-        const tableRows = document.querySelectorAll(".table-row");
-        tableRows.forEach((row, index) => {
-          row.addEventListener("mouseenter", function () {
-            this.style.transform = "translateX(8px)";
-          });
-
-          row.addEventListener("mouseleave", function () {
-            this.style.transform = "translateX(0)";
-          });
-        });
-
-        // Close modals when clicking outside
-        document.addEventListener("click", function (e) {
-          if (
-            e.target.classList.contains("fixed") &&
-            e.target.classList.contains("inset-0")
-          ) {
-            const modal = e.target;
-            const modalId = modal.id;
-            if (modalId && modalId.includes("Modal")) {
-              closeModal(modalId);
-            }
-          }
-        });
-
-        // Keyboard shortcuts
-        document.addEventListener("keydown", function (e) {
-          // Escape key to close modals
-          if (e.key === "Escape") {
-            const openModals = document.querySelectorAll(
-              ".fixed.inset-0:not(.hidden)",
-            );
-            openModals.forEach((modal) => {
-              if (modal.id && modal.id.includes("Modal")) {
-                closeModal(modal.id);
-              }
-            });
-          }
-        });
-      });
-    </script>
   </body>
 </html>
