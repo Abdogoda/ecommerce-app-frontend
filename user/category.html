@@ -531,32 +531,5 @@
     <!-- User Scripts -->
     <script src="../assets/js/user/cart.js"></script>
     <script src="../assets/js/user/main.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        // Category-specific JavaScript
-
-        // Dynamic category title based on URL parameter
-        const urlParams = new URLSearchParams(window.location.search);
-        const category = urlParams.get("category");
-        if (category) {
-          const categoryMap = {
-            electronics: { name: "Electronics", icon: "fas fa-laptop" },
-            clothing: { name: "Clothing", icon: "fas fa-tshirt" },
-            books: { name: "Books", icon: "fas fa-book" },
-            home: { name: "Home & Garden", icon: "fas fa-home" },
-          };
-
-          if (categoryMap[category]) {
-            document.title = `${categoryMap[category].name} - E-Commerce`;
-            // Update hero section title and icon
-            const heroTitle = document.querySelector("h1 span");
-            const heroIcon = document.querySelector(".w-32 i, .w-40 i");
-            if (heroTitle) heroTitle.textContent = categoryMap[category].name;
-            if (heroIcon)
-              heroIcon.className = `${categoryMap[category].icon} text-5xl lg:text-6xl text-white`;
-          }
-        }
-      });
-    </script>
   </body>
 </html>
