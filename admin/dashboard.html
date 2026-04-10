@@ -588,19 +588,6 @@
       });
     </script>
 
-    <!-- Modal and Interaction Functions -->
-    <script>
-      // Close modal when clicking outside
-      document.addEventListener("click", function (event) {
-        if (event.target.classList.contains("backdrop-blur-sm")) {
-          const modalId = event.target.id;
-          if (modalId && modalId.includes("Modal")) {
-            closeModal(modalId);
-          }
-        }
-      });
-    </script>
-
     <!-- Chart.js Configuration -->
     <script>
       // Chart.js default configuration
