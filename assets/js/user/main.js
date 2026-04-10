@@ -290,3 +290,62 @@ window.UserCommon = {
   isLoggedIn,
   currentUser,
 };
+
+
+// Tab switching functionality
+function switchTab(tabId) {
+  const tabs = document.querySelectorAll(".tab-content");
+  tabs.forEach((tab) => {
+    tab.classList.add("hidden");
+  });
+  const activeTabLink = document.querySelectorAll("button.tab-button");
+  activeTabLink.forEach((link) => {
+    link.classList.remove("border-blue-500", "text-blue-500");
+  });
+  document.getElementById(tabId).classList.remove("hidden");
+  const activeLink = document.querySelector("button#" + tabId + "Button");
+  activeLink.classList.add("border-blue-500", "text-blue-500");
+  localStorage.setItem("activeTab", tabId);
+}
+
+// Password visibility toggle
+function togglePassword(inputId) {
+  const input = document.getElementById(inputId);
+  const button = input.closest("div")?.querySelector('button[type="button"]');
+  const icon = button?.querySelector("i, svg");
+
+  if (!input || !button || !icon) {
+    return;
+  }
+
+  if (input.type === "password") {
+    input.type = "text";
+    icon.classList.remove("fa-eye");
+    icon.classList.add("fa-eye-slash");
+  } else {
+    input.type = "password";
+    icon.classList.remove("fa-eye-slash");
+    icon.classList.add("fa-eye");
+  }
+}
+
+function handleImageUpload(input) {
+  const file = input.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const uploadArea = document.getElementById("imageUploadArea");
+      const preview = document.getElementById("imagePreview");
+      const previewImg = document.getElementById("previewImg");
+      const fileName = document.getElementById("fileName");
+      const addBtn = document.getElementById("addImageBtn");
+
+      uploadArea.classList.add("hidden");
+      preview.classList.remove("hidden");
+      previewImg.src = e.target.result;
+      fileName.textContent = file.name;
+      addBtn.disabled = false;
+    };
+    reader.readAsDataURL(file);
+  }
+}

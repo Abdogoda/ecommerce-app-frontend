@@ -174,11 +174,12 @@
               >
                 JD
               </div>
-              <div
-                class="absolute -bottom-2 -right-2 w-10 h-10 bg-green-500 rounded-full flex items-center justify-center border-4 border-gray-800"
+              <button
+                onclick="openModal('addImageModal')"
+                class="absolute -bottom-0 -right-0 bg-blue-500 hover:bg-blue-600 p-2 rounded-full text-white transition-colors"
               >
-                <i class="fas fa-check text-white text-sm"></i>
-              </div>
+                <i class="fas fa-edit text-sm"></i>
+              </button>
             </div>
             <div class="text-center md:text-left">
               <h2 class="text-3xl font-bold text-white mb-2">John Doe</h2>
@@ -210,25 +211,29 @@
         >
           <div class="flex flex-wrap">
             <button
-              onclick="showTab('profileTab')"
+              id="profileTabButton"
+              onclick="switchTab('profileTab')"
               class="tab-button flex-1 px-6 py-4 text-center transition-all duration-300 hover:bg-gray-700/50 rounded-tl-2xl border-b-2 border-transparent hover:border-blue-500 text-gray-300 hover:text-white"
             >
               <i class="fas fa-user-edit mr-2"></i>Update Profile
             </button>
             <button
-              onclick="showTab('passwordTab')"
+              id="passwordTabButton"
+              onclick="switchTab('passwordTab')"
               class="tab-button flex-1 px-6 py-4 text-center transition-all duration-300 hover:bg-gray-700/50 border-b-2 border-transparent hover:border-purple-500 text-gray-300 hover:text-white"
             >
               <i class="fas fa-lock mr-2"></i>Change Password
             </button>
             <button
-              onclick="showTab('securityTab')"
+              id="securityTabButton"
+              onclick="switchTab('securityTab')"
               class="tab-button flex-1 px-6 py-4 text-center transition-all duration-300 hover:bg-gray-700/50 border-b-2 border-transparent hover:border-green-500 text-gray-300 hover:text-white"
             >
               <i class="fas fa-shield-alt mr-2"></i>Security
             </button>
             <button
-              onclick="showTab('ordersTab')"
+              id="ordersTabButton"
+              onclick="switchTab('ordersTab')"
               class="tab-button flex-1 px-6 py-4 text-center transition-all duration-300 hover:bg-gray-700/50 rounded-tr-2xl border-b-2 border-transparent hover:border-orange-500 text-gray-300 hover:text-white"
             >
               <i class="fas fa-shopping-bag mr-2"></i>My Orders
@@ -707,6 +712,7 @@
               type="password"
               id="logout_password"
               name="password"
+              required
               class="w-full p-4 rounded-xl bg-gray-700/50 text-gray-100 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300"
             />
           </div>
@@ -757,6 +763,7 @@
               type="password"
               id="delete_password"
               name="password"
+              required
               class="w-full p-4 rounded-xl bg-gray-700/50 text-gray-100 border border-gray-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300"
             />
           </div>
@@ -781,6 +788,90 @@
       </div>
     </div>
 
+    <!-- Add Image Modal -->
+    <div
+      id="addImageModal"
+      class="modal-overlay hidden fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50"
+    >
+      <div
+        class="modal-content bg-black/90 bg-gray-800/95 backdrop-blur-sm p-8 rounded-2xl shadow-2xl w-96 border border-gray-700/50 animate-bounce-in transition-all duration-300"
+      >
+        <div class="flex justify-between items-center mb-6">
+          <h3 class="text-xl font-bold text-white">
+            <i class="fas fa-user-plus mr-2 text-blue-500"></i>
+            Update Profile Image
+          </h3>
+          <button
+            onclick="closeModal('addImageModal')"
+            class="text-gray-400 hover:text-white text-xl transition-colors"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <form class="space-y-4">
+          <!-- Image Upload Area -->
+          <div
+            id="dropZone"
+            class="border-2 border-dashed border-gray-600 rounded-lg p-8 text-center hover:border-blue-500 transition-colors"
+          >
+            <div id="imageUploadArea" class="space-y-4">
+              <div class="text-gray-400">
+                <i class="fas fa-cloud-upload-alt text-4xl mb-4"></i>
+                <p class="text-sm">Click to browse</p>
+              </div>
+              <input
+                type="file"
+                id="imageInput"
+                accept="image/*"
+                class="hidden"
+                onchange="handleImageUpload(this)"
+              />
+              <button
+                type="button"
+                onclick="document.getElementById('imageInput').click()"
+                class="px-6 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-medium transition-colors"
+              >
+                <i class="fas fa-folder-open mr-2"></i>
+                Choose File
+              </button>
+            </div>
+
+            <!-- Image Preview -->
+            <div id="imagePreview" class="hidden">
+              <img
+                id="previewImg"
+                src=""
+                alt="Preview"
+                class="max-w-full h-48 object-contain mx-auto rounded-lg"
+              />
+              <p id="fileName" class="text-gray-400 text-sm mt-2"></p>
+            </div>
+          </div>
+
+          <!-- Modal Actions -->
+          <div class="flex justify-end space-x-3 pt-4">
+            <button
+              type="button"
+              onclick="closeModal('addImageModal')"
+              class="px-6 py-2 bg-gray-600/50 hover:bg-gray-600/70 rounded-lg text-white font-medium transition-colors"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              class="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-600/25"
+              id="addImageBtn"
+              disabled
+            >
+              <i class="fas fa-plus mr-2"></i>
+              Save Image
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <!-- Scripts -->
     <!-- User Scripts -->
     <script src="../assets/js/user/cart.js"></script>
@@ -789,40 +880,8 @@
       // Profile-specific functionality
       document.addEventListener("DOMContentLoaded", function () {
         const activeTab = localStorage.getItem("activeTab") || "profileTab";
-        showTab(activeTab);
+        switchTab(activeTab);
       });
-
-      function showTab(tabId) {
-        const tabs = document.querySelectorAll(".tab-content");
-        tabs.forEach((tab) => {
-          tab.classList.add("hidden");
-        });
-        const activeTabLink = document.querySelectorAll("button.tab-button");
-        activeTabLink.forEach((link) => {
-          link.classList.remove("border-blue-500", "text-blue-500");
-        });
-        document.getElementById(tabId).classList.remove("hidden");
-        const activeLink = document.querySelector(
-          `button.tab-button[onclick="showTab('${tabId}')"]`,
-        );
-        activeLink.classList.add("border-blue-500", "text-blue-500");
-        localStorage.setItem("activeTab", tabId);
-      }
-
-      function togglePassword(inputId) {
-        const input = document.getElementById(inputId);
-        const icon = input.nextElementSibling.querySelector("i");
-
-        if (input.type === "password") {
-          input.type = "text";
-          icon.classList.remove("fa-eye");
-          icon.classList.add("fa-eye-slash");
-        } else {
-          input.type = "password";
-          icon.classList.remove("fa-eye-slash");
-          icon.classList.add("fa-eye");
-        }
-      }
     </script>
   </body>
 </html>
