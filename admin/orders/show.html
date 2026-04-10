@@ -328,11 +328,9 @@
               <i class="fas fa-receipt text-white text-xl"></i>
             </div>
             <div>
-              <div
-                class="flex gap-0 items-start flex-col sm:flex-row sm:gap-5 sm:items-center mb-2"
-              >
+              <div class="flex gap-0 items-start flex-col mb-2">
                 <h1 class="text-3xl font-bold text-white mb-2">
-                  Order Details
+                  Order #ORD-2024-001
                 </h1>
                 <div class="flex items-center space-x-4">
                   <div id="breadcrumb" class="text-sm text-gray-400">
@@ -353,13 +351,12 @@
                   </div>
                 </div>
               </div>
-              <p class="text-gray-400">Order #ORD-2024-001</p>
             </div>
           </div>
           <div class="flex space-x-3">
             <button
-              onclick="showUpdateStatusModal()"
-              class="glass-button px-4 py-2 rounded-xl text-white hover:scale-105 transition-all"
+              onclick="openModal('updateStatusModal')"
+              class="btn-primary px-6 py-3 rounded-xl text-white font-bold hover:scale-105 transition-transform"
             >
               <i class="fas fa-edit mr-2"></i>
               Update Status
@@ -368,7 +365,7 @@
         </div>
 
         <!-- Tab Navigation -->
-        <div class="admin-card animate-slide-up">
+        <div class="animate-slide-up">
           <div class="flex space-x-1 p-1 bg-white/5 rounded-xl mb-6">
             <button
               id="infoTabBtn"
@@ -541,9 +538,7 @@
                           </p>
                         </div>
                         <div class="text-right">
-                          <p class="text-lg font-bold text-green-400">
-                            $999.00
-                          </p>
+                          <p class="font-bold text-green-400">$999.00</p>
                           <p class="text-sm text-gray-400">Qty: 1</p>
                         </div>
                       </div>
@@ -570,9 +565,7 @@
                           <p class="text-sm text-gray-400">2nd Generation</p>
                         </div>
                         <div class="text-right">
-                          <p class="text-lg font-bold text-green-400">
-                            $249.00
-                          </p>
+                          <p class="font-bold text-green-400">$249.00</p>
                           <p class="text-sm text-gray-400">Qty: 1</p>
                         </div>
                       </div>
@@ -613,28 +606,88 @@
                 <div class="flex items-start space-x-4">
                   <div class="flex-shrink-0 flex flex-col items-center">
                     <div
-                      class="w-4 h-4 bg-yellow-500 rounded-full ring-4 ring-yellow-500/20"
+                      class="w-4 h-4 bg-red-500 rounded-full ring-4 ring-red-500/20"
                     ></div>
-                    <div class="w-0.5 h-16 bg-gray-600 mt-2"></div>
                   </div>
                   <div
-                    class="flex-1 glass p-4 rounded-xl border-l-4 border-yellow-500"
+                    class="flex-1 glass p-4 rounded-xl border-l-4 border-red-500"
                   >
                     <div class="flex justify-between items-start mb-2">
                       <div>
-                        <p class="font-semibold text-yellow-400 text-lg">
-                          Pending
-                        </p>
+                        <span
+                          class="inline-flex items-center gap-2 font-semibold cursor-default text-lg text-red-400 text-lg"
+                        >
+                          <i class="fas fa-times"></i>
+                          Order Cancelled
+                        </span>
                         <p class="text-sm text-gray-400">
                           Jan 15, 2024 2:30 PM
                         </p>
                         <p class="text-sm text-gray-400">by Admin User</p>
                       </div>
                       <span
-                        class="px-2 py-1 text-xs font-medium rounded-full bg-yellow-500/20 text-yellow-400 border border-yellow-500/30"
+                        class="px-2 py-1 text-xs font-medium rounded-full bg-red-500/20 text-red-400 border border-yellow-500/30"
                       >
                         Current
                       </span>
+                    </div>
+                    <p class="text-gray-300">
+                      Order has been placed and is waiting for confirmation.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0 flex flex-col items-center">
+                    <div
+                      class="w-4 h-4 bg-blue-500 rounded-full ring-4 ring-blue-500/20"
+                    ></div>
+                  </div>
+                  <div
+                    class="flex-1 glass p-4 rounded-xl border-l-4 border-blue-500"
+                  >
+                    <div class="flex justify-between items-start mb-2">
+                      <div>
+                        <span
+                          class="inline-flex items-center gap-2 font-semibold cursor-default text-lg text-blue-400 text-lg"
+                        >
+                          <i class="fas fa-truck"></i>
+                          Order Shipped
+                        </span>
+                        <p class="text-sm text-gray-400">
+                          Jan 15, 2024 2:30 PM
+                        </p>
+                        <p class="text-sm text-gray-400">by Admin User</p>
+                      </div>
+                    </div>
+                    <p class="text-gray-300">
+                      Order has been placed and is waiting for confirmation.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start space-x-4">
+                  <div class="flex-shrink-0 flex flex-col items-center">
+                    <div
+                      class="w-4 h-4 bg-yellow-500 rounded-full ring-4 ring-yellow-500/20"
+                    ></div>
+                  </div>
+                  <div
+                    class="flex-1 glass p-4 rounded-xl border-l-4 border-yellow-500"
+                  >
+                    <div class="flex justify-between items-start mb-2">
+                      <div>
+                        <span
+                          class="inline-flex items-center gap-2 font-semibold cursor-default text-lg text-yellow-400 text-lg"
+                        >
+                          <i class="fas fa-clock"></i>
+                          Pending
+                        </span>
+                        <p class="text-sm text-gray-400">
+                          Jan 15, 2024 2:30 PM
+                        </p>
+                        <p class="text-sm text-gray-400">by Admin User</p>
+                      </div>
                     </div>
                     <p class="text-gray-300">
                       Order has been placed and is waiting for confirmation.
@@ -654,9 +707,12 @@
                   >
                     <div class="flex justify-between items-start mb-2">
                       <div>
-                        <p class="font-semibold text-green-400 text-lg">
+                        <span
+                          class="inline-flex items-center gap-2 font-semibold cursor-default text-lg text-green-400 text-lg"
+                        >
+                          <i class="fas fa-check-circle"></i>
                           Order Placed
-                        </p>
+                        </span>
                         <p class="text-sm text-gray-400">
                           Jan 15, 2024 2:30 PM
                         </p>
@@ -701,7 +757,7 @@
             </button>
           </div>
 
-          <form onsubmit="updateOrderStatus(event)" class="space-y-6">
+          <form class="space-y-6">
             <div>
               <label
                 for="status"
@@ -759,107 +815,6 @@
     </div>
 
     <script>
-      // Initialize page
-      document.addEventListener("DOMContentLoaded", function () {
-        // Initialize toastr if available
-        if (typeof toastr !== "undefined") {
-          toastr.options = {
-            closeButton: true,
-            progressBar: true,
-            timeOut: "3500",
-            positionClass: "toast-top-right",
-          };
-        }
-      });
-
-      // Admin utilities
-      // Toggle mobile sidebar
-      function toggleSidebar() {
-        const sidebar = document.getElementById("sidebar");
-        const overlay = document.getElementById("sidebarOverlay");
-
-        if (sidebar.classList.contains("-translate-x-full")) {
-          sidebar.classList.remove("-translate-x-full");
-          overlay.classList.remove("hidden");
-        } else {
-          sidebar.classList.add("-translate-x-full");
-          overlay.classList.add("hidden");
-        }
-      }
-
-      function toggleMobileSidebar() {
-        toggleSidebar();
-      }
-
-      // Modal functions
-      function openModal(modalId) {
-        const modal = document.getElementById(modalId);
-        if (modal) {
-          modal.classList.add("active");
-          modal.style.display = "flex";
-        }
-      }
-
-      function closeModal(modalId) {
-        const modal = document.getElementById(modalId);
-        if (modal) {
-          modal.classList.remove("active");
-          modal.style.display = "none";
-        }
-      }
-
-      // Toast notifications
-      function showToast(type, message) {
-        if (typeof toastr !== "undefined") {
-          toastr[type](message);
-        } else {
-          alert(message); // Fallback
-        }
-      }
-
-      // Initialize page
-      function initializeToast() {
-        if (typeof toastr !== "undefined") {
-          toastr.options = {
-            closeButton: true,
-            progressBar: true,
-            timeOut: "3500",
-          };
-        }
-      }
-
-      function initializePage() {
-        // Set active sidebar item
-        const currentPage = window.location.pathname.split("/").pop();
-        const sidebarItems = document.querySelectorAll(".sidebar-item");
-        sidebarItems.forEach((item) => {
-          const href = item.getAttribute("href");
-          if (href && href.includes(currentPage)) {
-            item.classList.add("active");
-          }
-        });
-      }
-
-      function showUpdateStatusModal() {
-        openModal("updateStatusModal");
-      }
-
-      function updateOrderStatus(event) {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        const status = formData.get("status");
-        const description = formData.get("description");
-
-        showToast("success", `Order status updated to ${status}!`);
-        closeModal("updateStatusModal");
-        event.target.reset();
-
-        // In a real application, you would send this data to the server
-        setTimeout(() => {
-          location.reload();
-        }, 1500);
-      }
-
       function showTab(tabName) {
         // Hide all tab contents
         const tabContents = document.querySelectorAll(".tab-content");
@@ -887,32 +842,6 @@
           selectedButton.classList.add("text-white");
         }
       }
-
-      // Initialize when DOM is loaded
-      document.addEventListener("DOMContentLoaded", function () {
-        initializeToast();
-        initializePage();
-      });
-
-      // Close modal when clicking outside
-      document.addEventListener("click", function (event) {
-        if (event.target.classList.contains("modal-overlay")) {
-          const modalId = event.target.id;
-          if (modalId) {
-            closeModal(modalId);
-          }
-        }
-      });
-
-      // Close modal with Escape key
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-          const activeModal = document.querySelector(".modal-overlay.active");
-          if (activeModal) {
-            closeModal(activeModal.id);
-          }
-        }
-      });
     </script>
   </body>
 </html>
