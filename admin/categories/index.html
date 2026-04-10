@@ -329,9 +329,24 @@
           class="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-8 animate-slide-in"
         >
           <div>
-            <h1 class="text-3xl font-bold text-white mb-2">
-              Categories Management
-            </h1>
+            <div
+              class="flex gap-0 items-start flex-col sm:flex-row sm:gap-5 sm:items-center mb-2"
+            >
+              <h1 class="text-3xl font-bold text-white mb-2">
+                Category Management
+              </h1>
+              <div class="flex items-center space-x-4">
+                <div id="breadcrumb" class="text-sm text-gray-400">
+                  <a
+                    href="../dashboard.html"
+                    class="text-gray-400 hover:underline"
+                    >Admin</a
+                  >
+                  <i class="fas fa-chevron-right mx-2"></i>
+                  <span class="text-white">Categories</span>
+                </div>
+              </div>
+            </div>
             <p class="text-gray-400">
               Organize your products into categories for better navigation
             </p>
@@ -671,13 +686,6 @@
         </div>
       </div>
     </div>
-
-    <!-- Mobile Sidebar Overlay -->
-    <div
-      id="sidebarOverlay"
-      class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 hidden md:hidden"
-      onclick="toggleMobileSidebar()"
-    ></div>
 
     <script>
       // Category management functions

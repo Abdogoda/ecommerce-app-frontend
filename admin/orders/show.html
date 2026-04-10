@@ -17,6 +17,7 @@
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="../../assets/js/admin/main.js"></script>
   </head>
 
   <body class="admin-bg text-white flex min-h-screen">
@@ -316,57 +317,53 @@
       ></div>
 
       <!-- Page Content -->
-      <div
-        class="p-6 animate-fade-in bg-gradient-to-br from-gray-900 via-purple-900/20 to-violet-900/20"
-      >
+      <div class="p-6 animate-fade-in">
         <!-- Content will go here -->
-        <!-- Header Section -->
-        <div class="animate-slide-down">
-          <!-- Breadcrumb -->
-          <nav class="flex mb-6" aria-label="Breadcrumb">
-            <ol class="inline-flex items-center space-x-1 md:space-x-3">
-              <li class="inline-flex items-center">
-                <a
-                  href="index.html"
-                  class="inline-flex items-center text-sm font-medium text-gray-400 hover:text-white transition-colors"
-                >
-                  <i class="fas fa-shopping-cart mr-2 text-red-400"></i>
-                  Orders
-                </a>
-              </li>
-              <li>
-                <div class="flex items-center">
-                  <i class="fas fa-chevron-right text-gray-600 mx-2"></i>
-                  <span class="ml-1 text-sm font-medium text-white md:ml-2"
-                    >#ORD-2024-001</span
-                  >
-                </div>
-              </li>
-            </ol>
-          </nav>
-
-          <!-- Page Title -->
-          <div class="flex items-center justify-between mb-6">
-            <div class="flex items-center space-x-4">
+        <!-- Page Header -->
+        <div class="flex items-center justify-between mb-6">
+          <div class="flex items-center space-x-4">
+            <div
+              class="p-3 bg-gradient-to-br from-red-500 to-pink-600 rounded-xl"
+            >
+              <i class="fas fa-receipt text-white text-xl"></i>
+            </div>
+            <div>
               <div
-                class="p-3 bg-gradient-to-br from-red-500 to-pink-600 rounded-xl"
+                class="flex gap-0 items-start flex-col sm:flex-row sm:gap-5 sm:items-center mb-2"
               >
-                <i class="fas fa-receipt text-white text-xl"></i>
+                <h1 class="text-3xl font-bold text-white mb-2">
+                  Order Details
+                </h1>
+                <div class="flex items-center space-x-4">
+                  <div id="breadcrumb" class="text-sm text-gray-400">
+                    <a
+                      href="../dashboard.html"
+                      class="text-gray-400 hover:underline"
+                      >Admin</a
+                    >
+                    <i class="fas fa-chevron-right mx-2"></i>
+                    <a
+                      href="./index.html"
+                      class="text-gray-400 hover:underline"
+                    >
+                      Orders
+                    </a>
+                    <i class="fas fa-chevron-right mx-2"></i>
+                    <span class="text-white">#ORD-2024-001</span>
+                  </div>
+                </div>
               </div>
-              <div>
-                <h1 class="text-3xl font-bold text-white">Order Details</h1>
-                <p class="text-gray-400">Order #ORD-2024-001</p>
-              </div>
+              <p class="text-gray-400">Order #ORD-2024-001</p>
             </div>
-            <div class="flex space-x-3">
-              <button
-                onclick="showUpdateStatusModal()"
-                class="glass-button px-4 py-2 rounded-xl text-white hover:scale-105 transition-all"
-              >
-                <i class="fas fa-edit mr-2"></i>
-                Update Status
-              </button>
-            </div>
+          </div>
+          <div class="flex space-x-3">
+            <button
+              onclick="showUpdateStatusModal()"
+              class="glass-button px-4 py-2 rounded-xl text-white hover:scale-105 transition-all"
+            >
+              <i class="fas fa-edit mr-2"></i>
+              Update Status
+            </button>
           </div>
         </div>
 
@@ -678,69 +675,86 @@
       </div>
     </main>
 
-    <!-- Mobile Sidebar Overlay -->
-    <div
-      id="sidebarOverlay"
-      class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 hidden md:hidden"
-      onclick="toggleMobileSidebar()"
-    ></div>
-
     <!-- Update Status Modal -->
-    <div id="updateStatusModal" class="modal-overlay">
-      <div class="modal-container">
-        <div class="modal-header">
-          <h3 class="modal-title">
-            <i class="fas fa-edit mr-2"></i>
-            Update Order Status
-          </h3>
-          <button
-            type="button"
-            onclick="closeModal('updateStatusModal')"
-            class="modal-close"
-          >
-            <i class="fas fa-times"></i>
-          </button>
-        </div>
-
-        <form onsubmit="updateOrderStatus(event)" class="modal-body">
-          <div class="form-group">
-            <label for="status" class="form-label">Status</label>
-            <select id="status" name="status" class="form-select" required>
-              <option value="pending" selected>Pending</option>
-              <option value="processing">Processing</option>
-              <option value="shipped">Shipped</option>
-              <option value="delivered">Delivered</option>
-              <option value="cancelled">Cancelled</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label for="description" class="form-label"
-              >Status Description</label
-            >
-            <textarea
-              id="description"
-              name="description"
-              placeholder="Enter status update description..."
-              class="form-textarea"
-              rows="3"
-            ></textarea>
-          </div>
-
-          <div class="modal-footer">
+    <div
+      id="updateStatusModal"
+      class="hidden fixed inset-0 bg-black/50 z-50 backdrop-blur-sm flex items-center justify-center"
+    >
+      <div class="p-4 w-full max-w-md">
+        <div
+          class="modal-content bg-black/90 rounded-2xl p-8 w-full mx-auto animate-bounce-in"
+        >
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center">
+              <div
+                class="w-10 h-10 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-xl flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-edit text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-white">Update Order Status</h3>
+            </div>
             <button
-              type="button"
               onclick="closeModal('updateStatusModal')"
-              class="btn-secondary"
+              class="text-gray-400 hover:text-white transition-colors"
             >
-              Cancel
-            </button>
-            <button type="submit" class="btn-primary">
-              <i class="fas fa-save mr-2"></i>
-              Update Status
+              <i class="fas fa-times"></i>
             </button>
           </div>
-        </form>
+
+          <form onsubmit="updateOrderStatus(event)" class="space-y-6">
+            <div>
+              <label
+                for="status"
+                class="block text-sm font-medium text-gray-300 mb-2"
+                >Status <span class="text-red-400">*</span></label
+              >
+              <select
+                id="status"
+                name="status"
+                class="w-full glass px-4 py-3 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+                required
+              >
+                <option value="pending" selected>Pending</option>
+                <option value="processing">Processing</option>
+                <option value="shipped">Shipped</option>
+                <option value="delivered">Delivered</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+            </div>
+
+            <div>
+              <label
+                for="description"
+                class="block text-sm font-medium text-gray-300 mb-2"
+                >Status Description</label
+              >
+              <textarea
+                id="description"
+                name="description"
+                placeholder="Enter status update description..."
+                class="w-full px-4 py-3 glass bg-white/5 text-white placeholder-gray-400 rounded-xl border-0 focus:ring-2 focus:ring-blue-500 transition-all"
+                rows="3"
+              ></textarea>
+            </div>
+
+            <div class="flex items-center space-x-3 pt-4">
+              <button
+                type="button"
+                onclick="closeModal('updateStatusModal')"
+                class="px-6 py-2 glass bg-white/5 text-gray-300 rounded-xl hover:bg-white/10 transition-colors"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                class="bg-gradient-to-r from-yellow-500 to-orange-600 px-6 py-2 rounded-xl text-white font-medium hover:from-yellow-600 hover:to-orange-700 transition-all"
+              >
+                <i class="fas fa-save mr-2"></i>
+                Update Status
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
 

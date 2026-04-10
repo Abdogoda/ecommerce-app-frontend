@@ -325,6 +325,24 @@
 
       <!-- Page Content -->
       <div class="p-6 animate-fade-in">
+        <!-- Page Header -->
+        <div class="mb-8">
+          <div
+            class="flex flex-col sm:flex-row sm:items-center sm:justify-between"
+          >
+            <div>
+              <h1 class="text-3xl font-bold text-white mb-2">Dashboard</h1>
+              <p class="text-gray-400">
+                Welcome back, Admin! Here's an overview of your store's
+                performance
+              </p>
+            </div>
+            <div class="mt-4 sm:mt-0">
+              <!-- Removed export and refresh buttons -->
+            </div>
+          </div>
+        </div>
+
         <!-- Stats Overview -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <!-- Total Orders -->
@@ -553,12 +571,6 @@
       </div>
     </main>
 
-    <!-- Mobile Sidebar Overlay -->
-    <div
-      id="sidebarOverlay"
-      class="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 hidden md:hidden"
-      onclick="toggleMobileSidebar()"
-    ></div>
     <script>
       // Initialize animations and functionality
       document.addEventListener("DOMContentLoaded", function () {
