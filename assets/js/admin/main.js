@@ -321,3 +321,27 @@ function handleFormSubmit(formId, successMessage) {
     });
   }
 }
+
+// Tab switching functionality
+function switchTab(tabName) {
+  // Hide all tab contents
+  const tabContents = document.querySelectorAll(".tab-content");
+  tabContents.forEach((content) => content.classList.add("hidden"));
+
+  // Remove active class from all tab buttons
+  const tabButtons = document.querySelectorAll(".tab-button");
+  tabButtons.forEach((button) => {
+    button.classList.remove("active", "text-blue-400");
+    button.classList.add("text-gray-400");
+  });
+
+  // Show selected tab content
+  document
+    .getElementById(tabName)
+    .classList.remove("hidden");
+
+  // Add active class to selected tab button
+  const activeTab = document.getElementById(tabName + "Btn");
+  activeTab.classList.add("active", "text-blue-400");
+  activeTab.classList.remove("text-gray-400");
+}

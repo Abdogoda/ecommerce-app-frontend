@@ -369,7 +369,7 @@
           <div class="flex space-x-1 p-1 bg-white/5 rounded-xl mb-6">
             <button
               id="infoTabBtn"
-              onclick="showTab('info')"
+              onclick="switchTab('infoTab')"
               class="tab-button active flex-1 py-3 px-4 rounded-lg text-white font-medium transition-all"
             >
               <i class="fas fa-info-circle mr-2"></i>
@@ -377,7 +377,7 @@
             </button>
             <button
               id="itemsTabBtn"
-              onclick="showTab('items')"
+              onclick="switchTab('itemsTab')"
               class="tab-button flex-1 py-3 px-4 rounded-lg text-gray-400 font-medium transition-all"
             >
               <i class="fas fa-shopping-bag mr-2"></i>
@@ -385,7 +385,7 @@
             </button>
             <button
               id="statusesTabBtn"
-              onclick="showTab('statuses')"
+              onclick="switchTab('statusesTab')"
               class="tab-button flex-1 py-3 px-4 rounded-lg text-gray-400 font-medium transition-all"
             >
               <i class="fas fa-history mr-2"></i>
@@ -813,35 +813,5 @@
         </div>
       </div>
     </div>
-
-    <script>
-      function showTab(tabName) {
-        // Hide all tab contents
-        const tabContents = document.querySelectorAll(".tab-content");
-        tabContents.forEach((content) => content.classList.add("hidden"));
-
-        // Remove active class from all tab buttons
-        const tabButtons = document.querySelectorAll(".tab-button");
-        tabButtons.forEach((button) => {
-          button.classList.remove("active");
-          button.classList.add("text-gray-400");
-          button.classList.remove("text-white");
-        });
-
-        // Show selected tab content
-        const selectedTab = document.getElementById(tabName + "Tab");
-        if (selectedTab) {
-          selectedTab.classList.remove("hidden");
-        }
-
-        // Activate selected tab button
-        const selectedButton = document.getElementById(tabName + "TabBtn");
-        if (selectedButton) {
-          selectedButton.classList.add("active");
-          selectedButton.classList.remove("text-gray-400");
-          selectedButton.classList.add("text-white");
-        }
-      }
-    </script>
   </body>
 </html>

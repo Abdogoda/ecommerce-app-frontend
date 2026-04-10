@@ -397,22 +397,22 @@
           <div class="border-b border-white/10 px-8 pt-6">
             <nav class="flex space-x-8">
               <button
-                onclick="switchTab('personal')"
-                id="personal-tab"
+                onclick="switchTab('personalTab')"
+                id="personalTabBtn"
                 class="tab-button active py-3 px-1 text-blue-400 font-medium"
               >
                 <i class="fas fa-user mr-2"></i>Personal Info
               </button>
               <button
-                onclick="switchTab('password')"
-                id="password-tab"
+                onclick="switchTab('passwordTab')"
+                id="passwordTabBtn"
                 class="tab-button py-3 px-1 text-gray-400 font-medium hover:text-white transition-colors"
               >
                 <i class="fas fa-shield-alt mr-2"></i>Change Password
               </button>
               <button
-                onclick="switchTab('security')"
-                id="security-tab"
+                onclick="switchTab('securityTab')"
+                id="securityTabBtn"
                 class="tab-button py-3 px-1 text-gray-400 font-medium hover:text-white transition-colors"
               >
                 <i class="fas fa-shield-alt mr-2"></i>Security
@@ -423,7 +423,7 @@
           <!-- Tab Content -->
           <div class="p-8">
             <!-- Personal Info Tab -->
-            <div id="personal-content" class="tab-content">
+            <div id="personalTab" class="tab-content">
               <h3 class="text-xl font-bold text-white mb-6">
                 Personal Information
               </h3>
@@ -500,7 +500,7 @@
             </div>
 
             <!-- Change Password Tab -->
-            <div id="password-content" class="tab-content hidden">
+            <div id="passwordTab" class="tab-content hidden">
               <h3 class="text-xl font-bold text-white mb-6">Change Password</h3>
 
               <!-- Change Password Form -->
@@ -578,7 +578,7 @@
             </div>
 
             <!-- Security Tab -->
-            <div id="security-content" class="tab-content hidden">
+            <div id="securityTab" class="tab-content hidden">
               <h3 class="text-xl font-bold text-white mb-6">
                 Security Settings
               </h3>
@@ -1004,30 +1004,6 @@
     </div>
 
     <script>
-      // Tab switching functionality
-      function switchTab(tabName) {
-        // Hide all tab contents
-        const tabContents = document.querySelectorAll(".tab-content");
-        tabContents.forEach((content) => content.classList.add("hidden"));
-
-        // Remove active class from all tab buttons
-        const tabButtons = document.querySelectorAll(".tab-button");
-        tabButtons.forEach((button) => {
-          button.classList.remove("active", "text-blue-400");
-          button.classList.add("text-gray-400");
-        });
-
-        // Show selected tab content
-        document
-          .getElementById(tabName + "-content")
-          .classList.remove("hidden");
-
-        // Add active class to selected tab button
-        const activeTab = document.getElementById(tabName + "-tab");
-        activeTab.classList.add("active", "text-blue-400");
-        activeTab.classList.remove("text-gray-400");
-      }
-
       // Global variables for image cropping
       let currentImageFile = null;
       let cropper = null;
