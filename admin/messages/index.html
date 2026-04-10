@@ -749,14 +749,22 @@
       id="markAllReadModal"
       class="hidden fixed inset-0 bg-black/50 z-50 backdrop-blur-sm flex items-center justify-center"
     >
-      <div
+      <form
         class="modal-content bg-black/90 rounded-xl p-6 w-full max-w-md mx-4 animate-bounce-in transition-all duration-300"
       >
         <div class="flex items-center justify-between mb-6">
-          <h3 class="text-xl font-bold text-white">
-            Mark All Messages as Read
-          </h3>
+          <div class="flex items-center gap-3">
+            <div
+              class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mr-3"
+            >
+              <i class="fas fa-check-double text-white"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">
+              Mark All Messages as Read
+            </h3>
+          </div>
           <button
+            type="button"
             onclick="closeModal('markAllReadModal')"
             class="text-gray-400 hover:text-white"
           >
@@ -765,20 +773,10 @@
         </div>
 
         <div class="space-y-6">
-          <div class="text-center">
-            <div
-              class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-4"
-            >
-              <i class="fas fa-check-double text-green-400 text-2xl"></i>
-            </div>
-            <h4 class="text-lg font-semibold text-white mb-2">
-              Confirm Action
-            </h4>
-            <p class="text-gray-400 text-sm">
-              Are you sure you want to mark all messages as read? This will
-              affect 5 unread messages.
-            </p>
-          </div>
+          <p class="text-gray-400 text-sm">
+            Are you sure you want to mark all messages as read? This will affect
+            5 unread messages.
+          </p>
 
           <div class="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4">
             <h5 class="text-blue-400 font-medium mb-2">This will:</h5>
@@ -798,42 +796,14 @@
               Cancel
             </button>
             <button
-              onclick="markAllAsRead()"
+              type="submit"
               class="flex-1 bg-gradient-to-r from-green-500 to-emerald-600 px-6 py-3 rounded-xl text-white font-bold hover:scale-105 transition-transform"
             >
               Mark All Read
             </button>
           </div>
         </div>
-      </div>
-    </div>
-
-    <!-- Message Action Modal -->
-    <div
-      id="markAllReadModal"
-      class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50"
-    >
-      <div class="bg-gray-800 p-6 rounded shadow-md w-96">
-        <h3 class="text-xl font-bold mb-4">Mark all read</h3>
-        <p class="mb-4">Are you sure you want to mark all messages as read?</p>
-        <form onsubmit="markAllAsRead(event)">
-          <div class="flex justify-end space-x-2">
-            <button
-              type="button"
-              onclick="closeModal('markAllReadModal')"
-              class="bg-gray-500 text-white px-4 py-2 rounded"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              class="bg-blue-500 text-white px-4 py-2 rounded"
-            >
-              Confirm
-            </button>
-          </div>
-        </form>
-      </div>
+      </form>
     </div>
 
     <!-- Message Action Modal -->
@@ -842,7 +812,7 @@
       class="hidden fixed inset-0 bg-black/50 z-50 backdrop-blur-sm flex items-center justify-center"
     >
       <div
-        class="glass rounded-2xl max-w-4xl w-full p-8 animate-bounce-in max-h-[90vh] overflow-y-auto"
+        class="modal-content bg-black/90 rounded-xl p-6 w-full max-w-md mx-4 animate-bounce-in transition-all duration-300"
       >
         <div class="flex items-start justify-between mb-6">
           <div class="flex items-start space-x-4">
@@ -893,20 +863,25 @@
         </div>
 
         <!-- Quick Actions -->
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-          <button
-            id="markAsReadBtn"
-            onclick="markAsRead()"
-            class="btn-success px-4 py-3 rounded-xl text-white font-bold"
-          >
-            <i class="fas fa-check mr-2"></i>Mark as Read
-          </button>
-          <button
-            onclick="openModal('deleteMessageModal')"
-            class="btn-danger px-4 py-3 rounded-xl text-white font-bold"
-          >
-            <i class="fas fa-trash mr-2"></i>Delete
-          </button>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+          <form action="">
+            <button
+              id="markAsReadBtn"
+              type="submit"
+              class="w-full btn-success px-4 py-3 rounded-xl text-white font-bold"
+            >
+              <i class="fas fa-check mr-2"></i>Mark as Read
+            </button>
+          </form>
+          <div action="">
+            <button
+              type="submit"
+              onclick="openModal('deleteMessageModal')"
+              class="w-full btn-danger px-4 py-3 rounded-xl text-white font-bold"
+            >
+              <i class="fas fa-trash mr-2"></i>Delete
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -929,7 +904,7 @@
           </button>
         </div>
 
-        <div class="space-y-6">
+        <form class="space-y-6">
           <div class="text-center">
             <div
               class="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-4"
@@ -959,34 +934,17 @@
               Cancel
             </button>
             <button
-              onclick="confirmDeleteMessage()"
+              type="submit"
               class="flex-1 bg-gradient-to-r from-red-500 to-red-600 px-6 py-3 rounded-xl text-white font-bold hover:scale-105 transition-transform"
             >
               Delete Message
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
 
     <script>
-      // Initialize functionality
-      document.addEventListener("DOMContentLoaded", function () {
-        // Initialize Toastr
-        toastr.options = {
-          closeButton: true,
-          progressBar: true,
-          timeOut: "3500",
-          positionClass: "toast-top-right",
-          showDuration: "300",
-          hideDuration: "300",
-          showEasing: "swing",
-          hideEasing: "linear",
-          showMethod: "fadeIn",
-          hideMethod: "fadeOut",
-        };
-      });
-
       // Message management functions
       function openMessageActionModal(
         id,
@@ -997,18 +955,6 @@
         isRead,
         priority,
       ) {
-        currentMessageId = id;
-        currentMessageIsRead = isRead;
-        currentMessageData = {
-          id,
-          name,
-          message,
-          email,
-          createdAt,
-          isRead,
-          priority,
-        };
-
         // Set message details
         document.getElementById("message-name").innerText = name;
         document.getElementById("message-email").innerText = email;
@@ -1046,83 +992,6 @@
         // Open Modal
         openModal("messageActionModal");
       }
-
-      function markAsRead() {
-        if (currentMessageId && !currentMessageIsRead) {
-          toastr.success("Message marked as read");
-          closeModal("messageActionModal");
-
-          // Update UI
-          setTimeout(() => {
-            location.reload();
-          }, 1000);
-        }
-      }
-
-      function markAllAsRead() {
-        toastr.success("All messages marked as read");
-        closeModal("markAllReadModal");
-
-        setTimeout(() => {
-          location.reload();
-        }, 1000);
-      }
-
-      // Modal functions
-      function openModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.classList.remove("hidden");
-        modal.classList.add("flex");
-        // Focus first input
-        const firstInput = modal.querySelector("input, select, textarea");
-        if (firstInput) {
-          setTimeout(() => firstInput.focus(), 100);
-        }
-      }
-
-      function closeModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.classList.add("hidden");
-        modal.classList.remove("flex");
-      }
-
-      // Mobile sidebar functionality
-      function toggleMobileSidebar() {
-        const sidebar = document.getElementById("sidebar");
-        const overlay = document.getElementById("sidebarOverlay");
-
-        sidebar.classList.toggle("-translate-x-full");
-        overlay.classList.toggle("hidden");
-      }
-
-      // Desktop sidebar toggle
-      const toggleSidebar = document.getElementById("toggleSidebar");
-      if (toggleSidebar) {
-        toggleSidebar.addEventListener("click", toggleMobileSidebar);
-      }
-
-      // Close modal when clicking outside
-      document.addEventListener("click", function (event) {
-        if (event.target.classList.contains("backdrop-blur-sm")) {
-          const modalId = event.target.id;
-          if (modalId && modalId.includes("Modal")) {
-            closeModal(modalId);
-          }
-        }
-      });
-
-      // Close modal with Escape key
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-          const openModal = document.querySelector(
-            ".fixed.inset-0.z-50:not(.hidden)",
-          );
-          if (openModal) {
-            const modalId = openModal.id;
-            closeModal(modalId);
-          }
-        }
-      });
     </script>
   </body>
 </html>
