@@ -17,6 +17,7 @@
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="../assets/js/auth/main.js"></script>
   </head>
 
   <body class="auth-bg min-h-screen relative">
@@ -57,6 +58,8 @@
           style="animation-delay: 0.3s"
         >
           <form id="otp-form" action="#" method="POST" class="space-y-6">
+            <input type="hidden" name="email" value="user@example.com" />
+            <input type="hidden" name="otp" id="otp-value" />
             <div class="text-center">
               <label class="block text-sm font-semibold text-white mb-4">
                 <i class="fas fa-key mr-2 text-green-300"></i>Verification Code
@@ -121,60 +124,6 @@
               </div>
             </div>
 
-            <!-- Timer and Resend -->
-            <div class="text-center space-y-4">
-              <div class="flex items-center justify-center space-x-3">
-                <div class="relative w-16 h-16">
-                  <svg
-                    class="w-16 h-16 transform -rotate-90"
-                    viewBox="0 0 100 100"
-                  >
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r="45"
-                      stroke="rgba(255,255,255,0.2)"
-                      stroke-width="4"
-                      fill="none"
-                    />
-                    <circle
-                      cx="50"
-                      cy="50"
-                      r="45"
-                      stroke="#10b981"
-                      stroke-width="4"
-                      fill="none"
-                      class="timer-circle"
-                      id="timer-circle"
-                    />
-                  </svg>
-                  <div
-                    class="absolute inset-0 flex items-center justify-center"
-                  >
-                    <span class="text-white font-bold text-sm" id="timer-text"
-                      >60</span
-                    >
-                  </div>
-                </div>
-                <div class="text-left">
-                  <p class="text-white/80 text-sm">Code expires in</p>
-                  <p class="text-green-300 font-semibold" id="timer-display">
-                    1:00
-                  </p>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                id="resend-btn"
-                class="text-green-300 hover:text-green-200 font-semibold transition-colors duration-300 hover:underline disabled:opacity-50 disabled:cursor-not-allowed text-sm"
-                disabled
-              >
-                <i class="fas fa-redo mr-1"></i>
-                Resend Code
-              </button>
-            </div>
-
             <button
               type="submit"
               class="w-full py-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 rounded-xl font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25 transform hover:scale-105 flex items-center justify-center"
@@ -236,58 +185,6 @@
     </main>
 
     <script>
-      let timer = 60;
-      let timerInterval;
-
-      function showError(message) {
-        const errorElement = document.getElementById("otp-error");
-
-        if (message) {
-          errorElement.querySelector("span").textContent = message;
-          errorElement.classList.remove("hidden");
-
-          // Add error styling to OTP inputs
-          document.querySelectorAll(".otp-input").forEach((input) => {
-            input.classList.add("border-red-400", "focus:ring-red-400");
-            input.classList.remove("border-white/20", "focus:ring-green-400");
-          });
-        } else {
-          errorElement.classList.add("hidden");
-
-          // Remove error styling
-          document.querySelectorAll(".otp-input").forEach((input) => {
-            input.classList.remove("border-red-400", "focus:ring-red-400");
-            input.classList.add("border-white/20", "focus:ring-green-400");
-          });
-        }
-      }
-
-      function startTimer() {
-        const timerText = document.getElementById("timer-text");
-        const timerDisplay = document.getElementById("timer-display");
-        const resendBtn = document.getElementById("resend-btn");
-        const timerCircle = document.getElementById("timer-circle");
-
-        // Reset timer
-        timer = 60;
-        resendBtn.disabled = true;
-        timerCircle.style.animation = "countdown 60s linear forwards";
-
-        timerInterval = setInterval(() => {
-          timer--;
-          timerText.textContent = timer;
-          timerDisplay.textContent = `0:${timer.toString().padStart(2, "0")}`;
-
-          if (timer <= 0) {
-            clearInterval(timerInterval);
-            resendBtn.disabled = false;
-            timerText.textContent = "0";
-            timerDisplay.textContent = "0:00";
-            timerCircle.style.animation = "none";
-          }
-        }, 1000);
-      }
-
       function validateOTP() {
         const inputs = document.querySelectorAll(".otp-input");
         let otp = "";
@@ -314,9 +211,6 @@
         const form = document.getElementById("otp-form");
         const inputs = document.querySelectorAll(".otp-input");
         const resendBtn = document.getElementById("resend-btn");
-
-        // Start initial timer
-        startTimer();
 
         // OTP input handling
         inputs.forEach((input, index) => {
@@ -354,6 +248,15 @@
               inputs[index - 1].classList.remove("filled");
             }
 
+            // Handle left/right arrow keys
+            if (e.key === "ArrowLeft" && index > 0) {
+              inputs[index - 1].focus();
+            }
+
+            if (e.key === "ArrowRight" && index < inputs.length - 1) {
+              inputs[index + 1].focus();
+            }
+
             // Handle paste
             if (e.key === "v" && (e.ctrlKey || e.metaKey)) {
               e.preventDefault();
@@ -373,29 +276,6 @@
           });
         });
 
-        // Resend code functionality
-        resendBtn.addEventListener("click", function () {
-          if (!this.disabled) {
-            // Clear existing OTP
-            inputs.forEach((input) => {
-              input.value = "";
-              input.classList.remove("filled");
-            });
-
-            // Focus first input
-            inputs[0].focus();
-
-            // Start new timer
-            startTimer();
-
-            // Show success message
-            toastr.success(
-              "A new verification code has been sent to your email",
-              "Code Sent",
-            );
-          }
-        });
-
         // Form submission
         form.addEventListener("submit", function (e) {
           e.preventDefault();
@@ -413,72 +293,8 @@
             '<i class="fas fa-spinner fa-spin mr-2"></i>Verifying...';
           submitButton.disabled = true;
 
-          // Simulate verification process
-          setTimeout(() => {
-            // Reset button
-            submitButton.innerHTML = originalHTML;
-            submitButton.disabled = false;
-
-            // For demo purposes, accept 123456 as valid
-            if (otp === "123456") {
-              toastr.success(
-                "Account verified successfully! Welcome to E-Commerce.",
-                "Verification Successful",
-              );
-
-              setTimeout(() => {
-                window.location.href = "../user/home.html";
-              }, 2000);
-            } else {
-              showError("Invalid verification code. Please try again.");
-
-              // Clear inputs for retry
-              inputs.forEach((input) => {
-                input.value = "";
-                input.classList.remove("filled");
-              });
-              inputs[0].focus();
-            }
-          }, 2000);
-        });
-
-        // Configure Toastr
-        if (typeof toastr !== "undefined") {
-          toastr.options = {
-            closeButton: true,
-            debug: false,
-            newestOnTop: true,
-            progressBar: true,
-            positionClass: "toast-top-right",
-            preventDuplicates: false,
-            onclick: null,
-            showDuration: "300",
-            hideDuration: "1000",
-            timeOut: "6000",
-            extendedTimeOut: "1000",
-            showEasing: "swing",
-            hideEasing: "linear",
-            showMethod: "fadeIn",
-            hideMethod: "fadeOut",
-          };
-        }
-
-        // Animation observer
-        const observerOptions = {
-          threshold: 0.1,
-          rootMargin: "0px 0px -50px 0px",
-        };
-
-        const observer = new IntersectionObserver(function (entries) {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.style.animationPlayState = "running";
-            }
-          });
-        }, observerOptions);
-
-        document.querySelectorAll('[class*="animate-"]').forEach((el) => {
-          observer.observe(el);
+          form.querySelector('input[name="otp"]').value = otp;
+          form.submit();
         });
       });
     </script>
