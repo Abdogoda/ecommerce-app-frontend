@@ -396,11 +396,6 @@
                   >
                     Created
                   </th>
-                  <th
-                    class="px-6 py-4 text-left text-xs font-medium text-gray-400 uppercase tracking-wider"
-                  >
-                    Actions
-                  </th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-white/10">
@@ -408,12 +403,16 @@
                   <td class="px-6 py-4">
                     <div class="flex items-center">
                       <div
-                        class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-3"
+                        class="hidden md:flex w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-3"
                       >
                         <i class="fas fa-laptop text-white"></i>
                       </div>
                       <div>
-                        <p class="text-white font-medium">Electronics</p>
+                        <a
+                          href="./show.html"
+                          class="text-white hover:text-blue-400 font-medium"
+                          >Electronics</a
+                        >
                         <p class="text-gray-400 text-sm">Gadgets and devices</p>
                       </div>
                     </div>
@@ -429,28 +428,22 @@
                     </span>
                   </td>
                   <td class="px-6 py-4 text-gray-400">Dec 15, 2023</td>
-                  <td class="px-6 py-4">
-                    <div class="flex items-center">
-                      <button
-                        onclick="viewCategory(1)"
-                        class="p-2 text-blue-400 hover:bg-blue-500/20 rounded-lg transition-colors"
-                      >
-                        <i class="fas fa-eye"></i>
-                      </button>
-                    </div>
-                  </td>
                 </tr>
 
                 <tr class="table-row">
                   <td class="px-6 py-4">
                     <div class="flex items-center">
                       <div
-                        class="w-10 h-10 bg-gradient-to-br from-pink-500 to-pink-600 rounded-lg flex items-center justify-center mr-3"
+                        class="hidden md:flex w-10 h-10 bg-gradient-to-br from-pink-500 to-pink-600 rounded-lg flex items-center justify-center mr-3"
                       >
                         <i class="fas fa-tshirt text-white"></i>
                       </div>
                       <div>
-                        <p class="text-white font-medium">Fashion</p>
+                        <a
+                          href="./show.html"
+                          class="text-white hover:text-blue-400 font-medium"
+                          >Fashion</a
+                        >
                         <p class="text-gray-400 text-sm">
                           Clothing and accessories
                         </p>
@@ -468,28 +461,22 @@
                     </span>
                   </td>
                   <td class="px-6 py-4 text-gray-400">Dec 10, 2023</td>
-                  <td class="px-6 py-4">
-                    <div class="flex items-center">
-                      <button
-                        onclick="viewCategory(2)"
-                        class="p-2 text-blue-400 hover:bg-blue-500/20 rounded-lg transition-colors"
-                      >
-                        <i class="fas fa-eye"></i>
-                      </button>
-                    </div>
-                  </td>
                 </tr>
 
                 <tr class="table-row">
                   <td class="px-6 py-4">
                     <div class="flex items-center">
                       <div
-                        class="w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center mr-3"
+                        class="hidden md:flex w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center mr-3"
                       >
                         <i class="fas fa-home text-white"></i>
                       </div>
                       <div>
-                        <p class="text-white font-medium">Home & Garden</p>
+                        <a
+                          href="./show.html"
+                          class="text-white hover:text-blue-400 font-medium"
+                          >Home & Garden</a
+                        >
                         <p class="text-gray-400 text-sm">
                           Home improvement items
                         </p>
@@ -507,28 +494,22 @@
                     </span>
                   </td>
                   <td class="px-6 py-4 text-gray-400">Dec 8, 2023</td>
-                  <td class="px-6 py-4">
-                    <div class="flex items-center">
-                      <button
-                        onclick="viewCategory(3)"
-                        class="p-2 text-blue-400 hover:bg-blue-500/20 rounded-lg transition-colors"
-                      >
-                        <i class="fas fa-eye"></i>
-                      </button>
-                    </div>
-                  </td>
                 </tr>
 
                 <tr class="table-row">
                   <td class="px-6 py-4">
                     <div class="flex items-center">
                       <div
-                        class="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center mr-3"
+                        class="hidden md:flex w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-600 rounded-lg flex items-center justify-center mr-3"
                       >
                         <i class="fas fa-dumbbell text-white"></i>
                       </div>
                       <div>
-                        <p class="text-white font-medium">Sports & Fitness</p>
+                        <a
+                          href="./show.html"
+                          class="text-white hover:text-blue-400 font-medium"
+                          >Sports & Fitness</a
+                        >
                         <p class="text-gray-400 text-sm">Exercise equipment</p>
                       </div>
                     </div>
@@ -544,16 +525,6 @@
                     </span>
                   </td>
                   <td class="px-6 py-4 text-gray-400">Dec 5, 2023</td>
-                  <td class="px-6 py-4">
-                    <div class="flex items-center">
-                      <button
-                        onclick="viewCategory(4)"
-                        class="p-2 text-blue-400 hover:bg-blue-500/20 rounded-lg transition-colors"
-                      >
-                        <i class="fas fa-eye"></i>
-                      </button>
-                    </div>
-                  </td>
                 </tr>
               </tbody>
             </table>
@@ -686,46 +657,5 @@
         </div>
       </div>
     </div>
-
-    <script>
-      // Category management functions
-      function addCategory(event) {
-        event.preventDefault();
-        toastr.success("Category added successfully!");
-        closeModal("addCategoryModal");
-        // Here you would normally send data to your backend
-      }
-
-      function viewCategory(id) {
-        window.location.href = `show.html?id=${id}`;
-      }
-
-      function editCategory(id) {
-        toastr.info("Opening edit form...");
-        // Here you would open an edit modal or navigate to edit page
-      }
-
-      function deleteCategory(id) {
-        if (confirm("Are you sure you want to delete this category?")) {
-          toastr.success("Category deleted successfully!");
-          // Here you would send delete request to your backend
-        }
-      }
-
-      // Mobile sidebar functionality
-      function toggleMobileSidebar() {
-        const sidebar = document.getElementById("sidebar");
-        const overlay = document.getElementById("sidebarOverlay");
-
-        sidebar.classList.toggle("-translate-x-full");
-        overlay.classList.toggle("hidden");
-      }
-
-      // Desktop sidebar toggle
-      const toggleSidebar = document.getElementById("toggleSidebar");
-      if (toggleSidebar) {
-        toggleSidebar.addEventListener("click", toggleMobileSidebar);
-      }
-    </script>
   </body>
 </html>
