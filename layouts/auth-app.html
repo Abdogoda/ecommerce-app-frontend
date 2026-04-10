@@ -17,6 +17,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <link rel="stylesheet" href="../assets/css/auth/styles.css" />
+    <script src="../assets/js/auth/main.js"></script>
     <!-- Additional CSS will be inserted here -->
     <!-- {{CSS_SECTION}} -->
   </head>
@@ -37,31 +38,25 @@
       ></div>
     </div>
 
-    <!-- Header -->
-    <header class="absolute top-0 left-0 right-0 z-50 py-6 px-6">
-      <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <a
-          href="../user/home.html"
-          class="text-2xl font-bold text-white hover:text-blue-200 transition-colors duration-300 animate-fade-in-left"
-        >
-          <i class="fas fa-store mr-2 text-blue-200"></i>E-Commerce
-        </a>
-        <nav class="animate-fade-in-right">
-          <a
-            href="../user/home.html"
-            class="text-white/80 hover:text-white transition-colors duration-300 text-sm font-medium"
-          >
-            <i class="fas fa-home mr-1"></i>Back to Home
-          </a>
-        </nav>
-      </div>
-    </header>
-
     <!-- Main Content -->
     <main
       class="min-h-screen flex items-center justify-center py-20 px-4 sm:px-6 lg:px-8 relative z-10"
     >
-      Conntent will be injected here by the auth pages
+      <div class="w-full max-w-md animate-scale-in">
+        <!-- Logo Section -->
+        <div class="text-center mb-8 animate-bounce-in">
+          <a
+            href="../user/home.html"
+            class="text-4xl font-bold text-white hover:text-blue-200 transition-colors duration-300 animate-fade-in-down mb-3 flex items-center justify-center"
+          >
+            <i class="fas fa-store mr-2 text-blue-200"></i>E-Commerce
+          </a>
+          <p class="text-blue-100">Auth pages template</p>
+        </div>
+
+        Conntent will be injected here by the auth pages
+        <!-- {{CONTENT_SECTION}} -->
+      </div>
     </main>
 
     <!-- Scripts -->
