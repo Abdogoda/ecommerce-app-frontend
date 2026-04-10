@@ -125,7 +125,7 @@
               <!-- Products -->
               <li>
                 <a
-                  href="../products/index.html"
+                  href="../Products/index.html"
                   class="sidebar-item flex items-center p-3 rounded-xl text-gray-300 hover:text-white group"
                 >
                   <i
@@ -238,7 +238,7 @@
                 id="search"
                 name="search"
                 type="search"
-                placeholder="Search products..."
+                placeholder="Search Products..."
                 class="bg-transparent text-white placeholder-gray-500 outline-none w-full text-sm"
               />
             </form>
@@ -306,7 +306,7 @@
                 id="search"
                 name="search"
                 type="search"
-                placeholder="Search products..."
+                placeholder="Search Products..."
                 id="mobileSearchInput"
                 class="bg-transparent text-white placeholder-gray-500 outline-none w-full text-sm"
               />
@@ -425,7 +425,10 @@
               class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
             >
               <!-- Product Card 1 -->
-              <div class="product-card admin-card p-4 rounded-xl">
+              <a
+                href="../products/show.html"
+                class="Product-card admin-card p-4 rounded-xl"
+              >
                 <div class="relative mb-4">
                   <img
                     src="https://picsum.photos/200/150?random=8"
@@ -442,39 +445,20 @@
                 <p class="text-gray-400 text-sm mb-3">
                   Latest flagship smartphone with advanced features
                 </p>
-                <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center justify-between">
                   <span class="text-blue-400 font-bold text-lg">$1,199</span>
                   <div class="flex items-center text-yellow-400">
                     <i class="fas fa-star mr-1"></i>
                     <span class="text-sm">4.9</span>
                   </div>
                 </div>
-                <div class="grid grid-cols-3 gap-2">
-                  <button
-                    onclick="viewProduct(1)"
-                    class="glass px-2 py-2 rounded-lg text-blue-400 hover:bg-blue-500/20 transition-colors text-xs flex items-center justify-center"
-                  >
-                    <i class="fas fa-eye mr-1"></i> View
-                  </button>
-                  <button
-                    onclick="
-                      editProduct(1, 'iPhone 15 Pro', '999.99', '25', 'active')
-                    "
-                    class="glass px-2 py-2 rounded-lg text-yellow-400 hover:bg-yellow-500/20 transition-colors text-xs flex items-center justify-center"
-                  >
-                    <i class="fas fa-edit mr-1"></i> Edit
-                  </button>
-                  <button
-                    onclick="deleteProduct(1, 'iPhone 15 Pro')"
-                    class="glass px-2 py-2 rounded-lg text-red-400 hover:bg-red-500/20 transition-colors text-xs flex items-center justify-center"
-                  >
-                    <i class="fas fa-trash mr-1"></i> Del
-                  </button>
-                </div>
-              </div>
+              </a>
 
               <!-- Product Card 2 -->
-              <div class="product-card admin-card p-4 rounded-xl">
+              <a
+                href="../products/show.html"
+                class="Product-card admin-card p-4 rounded-xl"
+              >
                 <div class="relative mb-4">
                   <img
                     src="https://picsum.photos/200/150?random=9"
@@ -491,39 +475,20 @@
                 <p class="text-gray-400 text-sm mb-3">
                   Professional laptop with M3 chip
                 </p>
-                <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center justify-between">
                   <span class="text-blue-400 font-bold text-lg">$2,499</span>
                   <div class="flex items-center text-yellow-400">
                     <i class="fas fa-star mr-1"></i>
                     <span class="text-sm">4.7</span>
                   </div>
                 </div>
-                <div class="grid grid-cols-3 gap-2">
-                  <button
-                    onclick="viewProduct(2)"
-                    class="glass px-2 py-2 rounded-lg text-blue-400 hover:bg-blue-500/20 transition-colors text-xs flex items-center justify-center"
-                  >
-                    <i class="fas fa-eye mr-1"></i> View
-                  </button>
-                  <button
-                    onclick="
-                      editProduct(2, 'MacBook Pro', '1999.99', '10', 'active')
-                    "
-                    class="glass px-2 py-2 rounded-lg text-yellow-400 hover:bg-yellow-500/20 transition-colors text-xs flex items-center justify-center"
-                  >
-                    <i class="fas fa-edit mr-1"></i> Edit
-                  </button>
-                  <button
-                    onclick="deleteProduct(2, 'MacBook Pro')"
-                    class="glass px-2 py-2 rounded-lg text-red-400 hover:bg-red-500/20 transition-colors text-xs flex items-center justify-center"
-                  >
-                    <i class="fas fa-trash mr-1"></i> Del
-                  </button>
-                </div>
-              </div>
+              </a>
 
               <!-- Product Card 3 -->
-              <div class="product-card admin-card p-4 rounded-xl">
+              <a
+                href="../products/show.html"
+                class="Product-card admin-card p-4 rounded-xl"
+              >
                 <div class="relative mb-4">
                   <img
                     src="https://picsum.photos/200/150?random=10"
@@ -542,39 +507,20 @@
                 <p class="text-gray-400 text-sm mb-3">
                   Wireless earbuds with noise cancellation
                 </p>
-                <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center justify-between">
                   <span class="text-blue-400 font-bold text-lg">$249</span>
                   <div class="flex items-center text-yellow-400">
                     <i class="fas fa-star mr-1"></i>
                     <span class="text-sm">4.6</span>
                   </div>
                 </div>
-                <div class="grid grid-cols-3 gap-2">
-                  <button
-                    onclick="viewProduct(3)"
-                    class="glass px-2 py-2 rounded-lg text-blue-400 hover:bg-blue-500/20 transition-colors text-xs flex items-center justify-center"
-                  >
-                    <i class="fas fa-eye mr-1"></i> View
-                  </button>
-                  <button
-                    onclick="
-                      editProduct(3, 'iPad Air', '599.99', '15', 'active')
-                    "
-                    class="glass px-2 py-2 rounded-lg text-yellow-400 hover:bg-yellow-500/20 transition-colors text-xs flex items-center justify-center"
-                  >
-                    <i class="fas fa-edit mr-1"></i> Edit
-                  </button>
-                  <button
-                    onclick="deleteProduct(3, 'iPad Air')"
-                    class="glass px-2 py-2 rounded-lg text-red-400 hover:bg-red-500/20 transition-colors text-xs flex items-center justify-center"
-                  >
-                    <i class="fas fa-trash mr-1"></i> Del
-                  </button>
-                </div>
-              </div>
+              </a>
 
               <!-- Product Card 4 -->
-              <div class="product-card admin-card p-4 rounded-xl">
+              <a
+                href="../products/show.html"
+                class="Product-card admin-card p-4 rounded-xl"
+              >
                 <div class="relative mb-4">
                   <img
                     src="https://picsum.photos/200/150?random=11"
@@ -589,38 +535,16 @@
                 </div>
                 <h3 class="text-white font-semibold mb-2">iPad Air 5th Gen</h3>
                 <p class="text-gray-400 text-sm mb-3">
-                  Powerful tablet for creativity and productivity
+                  Powerful tablet for creativity and Productivity
                 </p>
-                <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center justify-between">
                   <span class="text-blue-400 font-bold text-lg">$599</span>
                   <div class="flex items-center text-yellow-400">
                     <i class="fas fa-star mr-1"></i>
                     <span class="text-sm">4.8</span>
                   </div>
                 </div>
-                <div class="grid grid-cols-3 gap-2">
-                  <button
-                    onclick="viewProduct(4)"
-                    class="glass px-2 py-2 rounded-lg text-blue-400 hover:bg-blue-500/20 transition-colors text-xs flex items-center justify-center"
-                  >
-                    <i class="fas fa-eye mr-1"></i> View
-                  </button>
-                  <button
-                    onclick="
-                      editProduct(4, 'Apple Watch', '299.99', '30', 'active')
-                    "
-                    class="glass px-2 py-2 rounded-lg text-yellow-400 hover:bg-yellow-500/20 transition-colors text-xs flex items-center justify-center"
-                  >
-                    <i class="fas fa-edit mr-1"></i> Edit
-                  </button>
-                  <button
-                    onclick="deleteProduct(4, 'Apple Watch')"
-                    class="glass px-2 py-2 rounded-lg text-red-400 hover:bg-red-500/20 transition-colors text-xs flex items-center justify-center"
-                  >
-                    <i class="fas fa-trash mr-1"></i> Del
-                  </button>
-                </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
@@ -630,9 +554,11 @@
     <!-- Edit Category Modal -->
     <div
       id="editCategoryModal"
-      class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4"
+      class="hidden fixed inset-0 bg-black/50 z-50 backdrop-blur-sm flex items-center justify-center"
     >
-      <div class="glass rounded-2xl max-w-md w-full p-8 animate-bounce-in">
+      <div
+        class="modal-content bg-black/90 rounded-xl p-6 w-full max-w-md mx-4 animate-bounce-in transition-all duration-300"
+      >
         <div class="flex items-center justify-between mb-6">
           <h3 class="text-xl font-bold text-white">Edit Category</h3>
           <button
@@ -643,7 +569,7 @@
           </button>
         </div>
 
-        <form onsubmit="updateCategory(event)" class="space-y-6">
+        <form class="space-y-6">
           <!-- Category Image -->
           <div class="flex items-center space-x-4">
             <label
@@ -693,7 +619,7 @@
               rows="3"
               class="w-full glass px-4 py-3 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
             >
-Electronic devices and accessories including smartphones, tablets, computers, and smart home products.</textarea
+Electronic devices and accessories including smartphones, tablets, computers, and smart home Products.</textarea
             >
           </div>
 
@@ -719,12 +645,15 @@ Electronic devices and accessories including smartphones, tablets, computers, an
     <!-- Delete Category Modal -->
     <div
       id="deleteCategoryModal"
-      class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4"
+      class="hidden fixed inset-0 bg-black/50 z-50 backdrop-blur-sm flex items-center justify-center"
     >
-      <div class="glass rounded-2xl max-w-md w-full p-8 animate-bounce-in">
+      <form
+        class="modal-content bg-black/90 rounded-xl p-6 w-full max-w-md mx-4 animate-bounce-in transition-all duration-300"
+      >
         <div class="flex items-center justify-between mb-6">
           <h3 class="text-xl font-bold text-white">Delete Category</h3>
           <button
+            type="button"
             onclick="closeModal('deleteCategoryModal')"
             class="text-gray-400 hover:text-white"
           >
@@ -749,8 +678,8 @@ Electronic devices and accessories including smartphones, tablets, computers, an
           <div class="bg-red-500/10 border border-red-500/20 rounded-xl p-4">
             <h5 class="text-red-400 font-medium mb-2">This will also:</h5>
             <ul class="text-sm text-gray-300 space-y-1">
-              <li>• Remove 45 products from this category</li>
-              <li>• Update affected product listings</li>
+              <li>• Remove 45 Products from this category</li>
+              <li>• Update affected Category listings</li>
             </ul>
           </div>
 
@@ -763,40 +692,42 @@ Electronic devices and accessories including smartphones, tablets, computers, an
               Cancel
             </button>
             <button
-              onclick="confirmDeleteCategory()"
+              type="submit"
               class="flex-1 bg-gradient-to-r from-red-500 to-red-600 px-6 py-3 rounded-xl text-white font-bold hover:scale-105 transition-transform"
             >
               Delete Category
             </button>
           </div>
         </div>
-      </div>
+      </form>
     </div>
 
-    <!-- Edit Product Modal -->
+    <!-- Edit Category Modal -->
     <div
-      id="editProductModal"
-      class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4"
+      id="editCategoryModal"
+      class="hidden fixed inset-0 bg-black/50 z-50 backdrop-blur-sm flex items-center justify-center"
     >
-      <div class="glass rounded-2xl max-w-md w-full p-8 animate-bounce-in">
+      <div
+        class="modal-content bg-black/90 rounded-xl p-6 w-full max-w-md mx-4 animate-bounce-in transition-all duration-300"
+      >
         <div class="flex items-center justify-between mb-6">
-          <h3 class="text-xl font-bold text-white">Edit Product</h3>
+          <h3 class="text-xl font-bold text-white">Edit Category</h3>
           <button
-            onclick="closeModal('editProductModal')"
+            onclick="closeModal('editCategoryModal')"
             class="text-gray-400 hover:text-white"
           >
             <i class="fas fa-times"></i>
           </button>
         </div>
 
-        <form onsubmit="updateProduct(event)" class="space-y-6">
+        <form class="space-y-6">
           <div>
             <label class="block text-sm font-medium text-gray-400 mb-2"
-              >Product Name</label
+              >Category Name</label
             >
             <input
               type="text"
-              id="editProductName"
+              id="editCategoryName"
               class="w-full glass px-4 py-3 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
@@ -808,7 +739,7 @@ Electronic devices and accessories including smartphones, tablets, computers, an
             >
             <input
               type="number"
-              id="editProductPrice"
+              id="editCategoryPrice"
               step="0.01"
               class="w-full glass px-4 py-3 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
@@ -821,7 +752,7 @@ Electronic devices and accessories including smartphones, tablets, computers, an
             >
             <input
               type="number"
-              id="editProductStock"
+              id="editProductstock"
               class="w-full glass px-4 py-3 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
@@ -832,7 +763,7 @@ Electronic devices and accessories including smartphones, tablets, computers, an
               >Status</label
             >
             <select
-              id="editProductStatus"
+              id="editProductstatus"
               class="w-full glass px-4 py-3 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               <option value="active">Active</option>
@@ -844,7 +775,7 @@ Electronic devices and accessories including smartphones, tablets, computers, an
           <div class="flex items-center space-x-4">
             <button
               type="button"
-              onclick="closeModal('editProductModal')"
+              onclick="closeModal('editCategoryModal')"
               class="flex-1 glass px-6 py-3 rounded-xl text-gray-400 hover:text-white transition-colors"
             >
               Cancel
@@ -853,7 +784,7 @@ Electronic devices and accessories including smartphones, tablets, computers, an
               type="submit"
               class="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 px-6 py-3 rounded-xl text-white font-bold hover:scale-105 transition-transform"
             >
-              Update Product
+              Update Category
             </button>
           </div>
         </form>
@@ -861,181 +792,38 @@ Electronic devices and accessories including smartphones, tablets, computers, an
     </div>
 
     <script>
-      // Initialize functionality
-      document.addEventListener("DOMContentLoaded", function () {
-        // Initialize Toastr
-        toastr.options = {
-          closeButton: true,
-          progressBar: true,
-          timeOut: "3500",
-          positionClass: "toast-top-right",
-          showDuration: "300",
-          hideDuration: "300",
-          showEasing: "swing",
-          hideEasing: "linear",
-          showMethod: "fadeIn",
-          hideMethod: "fadeOut",
-        };
-
-        // Get category ID from URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const categoryId = urlParams.get("id");
-        if (categoryId) {
-          loadCategoryData(categoryId);
-        }
-      });
-
-      // Product management functions
-      function viewProduct(id) {
-        window.location.href = `../products/show.html?id=${id}`;
-      }
-
-      // Load category data based on ID
-      function loadCategoryData(categoryId) {
-        // This would typically fetch data from your backend
-        // For demo purposes, we'll just show a message
-        console.log(`Loading data for category ID: ${categoryId}`);
-      }
-
-      // Navigation functions
-      function goBack() {
-        window.location.href = "index.html";
-      }
-
-      // Modal functions
-      function openModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.classList.remove("hidden");
-        modal.classList.add("flex");
-        // Focus first input
-        const firstInput = modal.querySelector("input, select, textarea");
-        if (firstInput) {
-          setTimeout(() => firstInput.focus(), 100);
-        }
-      }
-
-      function closeModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.classList.add("hidden");
-        modal.classList.remove("flex");
-      }
-
       // Category functions
-      function updateCategory(event) {
-        event.preventDefault();
-        const formData = new FormData(event.target);
-        console.log("Updating category:", Object.fromEntries(formData));
+      function editCategory(CategoryId, name, price, stock, status) {
+        // Populate the edit form with Category data
+        document.getElementById("editCategoryName").value = name;
+        document.getElementById("editCategoryPrice").value = price;
+        document.getElementById("editProductstock").value = stock;
+        document.getElementById("editProductstatus").value = status;
 
-        // Here you would typically send data to your backend
-        toastr.success("Category updated successfully!");
-        closeModal("editCategoryModal");
+        // Store Category ID for update
+        document.getElementById("editCategoryModal").dataset.CategoryId =
+          CategoryId;
+
+        openModal("editCategoryModal");
       }
 
-      function confirmDeleteCategory() {
-        console.log("Deleting category...");
-
-        // Here you would typically send delete request to your backend
-        toastr.success("Category deleted successfully!");
-        closeModal("deleteCategoryModal");
-
-        // Redirect to categories list after deletion
-        setTimeout(() => {
-          window.location.href = "index.html";
-        }, 1500);
-      }
-
-      // Product functions
-      function editProduct(productId, name, price, stock, status) {
-        // Populate the edit form with product data
-        document.getElementById("editProductName").value = name;
-        document.getElementById("editProductPrice").value = price;
-        document.getElementById("editProductStock").value = stock;
-        document.getElementById("editProductStatus").value = status;
-
-        // Store product ID for update
-        document.getElementById("editProductModal").dataset.productId =
-          productId;
-
-        openModal("editProductModal");
-      }
-
-      function updateProduct(event) {
-        event.preventDefault();
-        const productId =
-          document.getElementById("editProductModal").dataset.productId;
-        const formData = new FormData(event.target);
-
-        console.log(
-          "Updating product:",
-          productId,
-          Object.fromEntries(formData),
-        );
-
-        // Here you would typically send data to your backend
-        toastr.success("Product updated successfully!");
-        closeModal("editProductModal");
-
-        // Refresh the products list (in a real app, you'd update the table)
-        setTimeout(() => {
-          location.reload();
-        }, 1000);
-      }
-
-      function deleteProduct(productId, productName) {
+      function deleteCategory(CategoryId, CategoryName) {
         if (
           confirm(
-            `Are you sure you want to delete "${productName}"? This action cannot be undone.`,
+            `Are you sure you want to delete "${CategoryName}"? This action cannot be undone.`,
           )
         ) {
-          console.log("Deleting product:", productId);
+          console.log("Deleting Category:", CategoryId);
 
           // Here you would typically send delete request to your backend
-          toastr.success("Product deleted successfully!");
+          toastr.success("Category deleted successfully!");
 
-          // Refresh the products list (in a real app, you'd update the table)
+          // Refresh the Products list (in a real app, you'd update the table)
           setTimeout(() => {
             location.reload();
           }, 1000);
         }
       }
-
-      // Mobile sidebar functionality
-      function toggleMobileSidebar() {
-        const sidebar = document.getElementById("sidebar");
-        const overlay = document.getElementById("sidebarOverlay");
-
-        sidebar.classList.toggle("-translate-x-full");
-        overlay.classList.toggle("hidden");
-      }
-
-      // Desktop sidebar toggle
-      const toggleSidebarBtn = document.getElementById("toggleSidebar");
-      if (toggleSidebarBtn) {
-        toggleSidebarBtn.addEventListener("click", toggleMobileSidebar);
-      }
-
-      // Close modal when clicking outside
-      document.addEventListener("click", function (event) {
-        if (event.target.classList.contains("backdrop-blur-sm")) {
-          const modalId = event.target.id;
-          if (modalId && modalId.includes("Modal")) {
-            closeModal(modalId);
-          }
-        }
-      });
-
-      // Close modal with Escape key
-      document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-          const openModal = document.querySelector(
-            ".fixed.inset-0.z-50:not(.hidden)",
-          );
-          if (openModal) {
-            const modalId = openModal.id;
-            closeModal(modalId);
-          }
-        }
-      });
 
       function previewCategoryImage(event) {
         const input = event.target;

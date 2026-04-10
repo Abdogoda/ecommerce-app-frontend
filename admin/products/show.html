@@ -576,14 +576,14 @@
 
                 <div class="flex space-x-2">
                   <button
-                    onclick="openEditModal()"
+                    onclick="openModal('editModal')"
                     class="btn-warning btn-ripple px-4 py-2 rounded-lg text-white font-medium hover:shadow-lg transition-all"
                   >
                     <i class="fas fa-edit mr-2"></i>
                     Edit
                   </button>
                   <button
-                    onclick="openDeleteModal()"
+                    onclick="openModal('deleteModal')"
                     class="btn-danger btn-ripple px-4 py-2 rounded-lg text-white font-medium hover:shadow-lg transition-all"
                   >
                     <i class="fas fa-trash mr-2"></i>
@@ -770,7 +770,7 @@
     <!-- Image View Modal -->
     <div
       id="imageModal"
-      class="modal fixed inset-0 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300"
+      class="hidden fixed inset-0 bg-black/50 z-50 backdrop-blur-sm flex items-center justify-center"
     >
       <div class="w-full h-full flex items-center justify-center p-4">
         <div class="relative max-w-4xl max-h-full">
@@ -793,10 +793,10 @@
     <!-- Edit Product Modal -->
     <div
       id="editModal"
-      class="modal fixed inset-0 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300"
+      class="hidden fixed inset-0 bg-black/50 z-50 backdrop-blur-sm flex items-center justify-center"
     >
       <div
-        class="modal-content bg-black/90 rounded-xl p-6 w-full max-w-2xl mx-4 transform scale-95 transition-all duration-300"
+        class="modal-content bg-black/90 rounded-xl p-6 w-full max-w-2xl mx-4 animate-bounce-in transition-all duration-300"
       >
         <div class="flex justify-between items-center mb-6">
           <h3 class="text-xl font-bold text-white">
@@ -911,10 +911,10 @@ Experience exceptional sound quality with these premium wireless headphones. Fea
     <!-- Delete Confirmation Modal -->
     <div
       id="deleteModal"
-      class="modal fixed inset-0 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300"
+      class="hidden fixed inset-0 bg-black/50 z-50 backdrop-blur-sm flex items-center justify-center"
     >
       <div
-        class="modal-content bg-black/90 rounded-xl p-6 w-full max-w-md mx-4 transform scale-95 transition-all duration-300"
+        class="modal-content bg-black/90 rounded-xl p-6 w-full max-w-md mx-4 animate-bounce-in transition-all duration-300"
       >
         <div class="text-center">
           <div
@@ -949,10 +949,10 @@ Experience exceptional sound quality with these premium wireless headphones. Fea
     <!-- Delete Image Confirmation Modal -->
     <div
       id="deleteImageModal"
-      class="modal fixed inset-0 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300"
+      class="hidden fixed inset-0 bg-black/50 z-50 backdrop-blur-sm flex items-center justify-center"
     >
       <div
-        class="modal-content bg-black/90 rounded-xl p-6 w-full max-w-md mx-4 transform scale-95 transition-all duration-300"
+        class="modal-content bg-black/90 rounded-xl p-6 w-full max-w-md mx-4 animate-bounce-in transition-all duration-300"
       >
         <div class="text-center">
           <div
@@ -987,10 +987,10 @@ Experience exceptional sound quality with these premium wireless headphones. Fea
     <!-- Add New Image Modal -->
     <div
       id="addImageModal"
-      class="modal fixed inset-0 z-50 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300"
+      class="hidden fixed inset-0 bg-black/50 z-50 backdrop-blur-sm flex items-center justify-center"
     >
       <div
-        class="modal-content bg-black/90 rounded-xl p-6 w-full max-w-lg mx-4 transform scale-95 transition-all duration-300"
+        class="modal-content bg-black/90 rounded-xl p-6 w-full max-w-lg mx-4 animate-bounce-in transition-all duration-300"
       >
         <div class="flex justify-between items-center mb-6">
           <h3 class="text-xl font-bold text-white">
@@ -1137,38 +1137,6 @@ Experience exceptional sound quality with these premium wireless headphones. Fea
           sidebar.classList.add("-translate-x-full");
         }
       });
-
-      // Modal Functions
-      function openModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.classList.remove("opacity-0", "pointer-events-none");
-        modal.classList.add("opacity-100");
-        modal.querySelector(".modal-content").classList.remove("scale-95");
-        modal.querySelector(".modal-content").classList.add("scale-100");
-      }
-
-      function closeModal(modalId) {
-        const modal = document.getElementById(modalId);
-        modal.classList.add("opacity-0", "pointer-events-none");
-        modal.classList.remove("opacity-100");
-        modal.querySelector(".modal-content").classList.add("scale-95");
-        modal.querySelector(".modal-content").classList.remove("scale-100");
-
-        // Reset add image modal when closed
-        if (modalId === "addImageModal") {
-          removeImagePreview();
-          document.getElementById("imageAlt").value = "";
-          document.getElementById("setPrimary").checked = false;
-        }
-      }
-
-      function openEditModal() {
-        openModal("editModal");
-      }
-
-      function openDeleteModal() {
-        openModal("deleteModal");
-      }
 
       // Product Actions
       function updateProduct() {
